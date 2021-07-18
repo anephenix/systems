@@ -1,0 +1,19 @@
+{
+  "name": "systems",
+  "version": "1.0.0",
+  "description": "Systems PoC",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Paul Jensen <paul@anephenix.com>",
+  "license": "MIT",
+  "dependencies": {
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.30.0",
+    "jest": "^27.0.6",
+    "prettier": "^2.3.2"
+  }
+}

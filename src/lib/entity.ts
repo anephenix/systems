@@ -1,15 +1,17 @@
 // Dependencies
-const { v4 } = require('uuid');
+import { v4 } from 'uuid';
+
+type EntityType = 'quantifiable' | 'non-quantifiable';
 
 interface EntityProps {
     name: string;
-    type: 'quantifiable' | 'non-quantifiable'; 
+    type: EntityType; 
 }
 
 class Entity {
     id: string;
     name: string;
-    type: 'quantifiable' | 'non-quantifiable';
+    type: EntityType;
 
     constructor({ name, type }:EntityProps) {
         this.id = v4();

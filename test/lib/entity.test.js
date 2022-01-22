@@ -1,4 +1,4 @@
-const Entity = require('../../src/lib/entity');
+const Entity = require('../../dist/entity');
 const assert = require('assert');
 
 describe('entity', () => {
@@ -14,5 +14,8 @@ describe('entity', () => {
     const entity = new Entity({ name: 'Buying volume' });
     assert.strictEqual(entity.name, 'Buying volume');
   });
-  it.todo('will have a type of either quantifiable or non-quantifiable');
+  it('will have a type of either quantifiable or non-quantifiable', () => {
+    const entity = new Entity({ name: 'Transaction volume', type: 'numeric' });
+    assert.strictEqual(entity.type, 'numeric');
+  });
 });

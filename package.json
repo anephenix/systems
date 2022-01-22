@@ -1,30 +1,20 @@
 {
   "name": "systems",
   "version": "1.0.0",
-  "description": "Systems PoC",
+  "description": "Systems",
   "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "files": [
-    "dist",
-    "src"
-  ],
   "engines": {
     "node": ">=10"
   },
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
-    "size": "size-limit",
-    "analyze": "size-limit --why"
+    "build": "npx tsc build",
+    "test": "npx jest"
   },
   "author": "Paul Jensen <paul@anephenix.com>",
   "license": "MIT",
   "husky": {
     "hooks": {
-      "pre-commit": "tsdx lint && tsdx test"
+      "pre-commit": "npm run build && git add dist/ && npm t"
     }
   },
   "prettier": {
@@ -33,30 +23,18 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "module": "dist/measure.esm.js",
-  "size-limit": [
-    {
-      "path": "dist/measure.cjs.production.min.js",
-      "limit": "10 KB"
-    },
-    {
-      "path": "dist/measure.esm.js",
-      "limit": "10 KB"
-    }
-  ],
-  "peerDependencies": {},
   "dependencies": {
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "@size-limit/preset-small-lib": "^4.10.2",
-    "eslint": "^7.30.0",
-    "husky": "^6.0.0",
-    "jest": "^27.0.6",
-    "prettier": "^2.3.2",
-    "size-limit": "^4.10.2",
-    "tsdx": "^0.14.1",
-    "tslib": "^2.2.0",
-    "typescript": "^3.9.9"
+    "@types/uuid": "^8.3.4",
+    "@typescript-eslint/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/parser": "^5.10.0",
+    "eslint": "^8.7.0",
+    "husky": "^7.0.4",
+    "jest": "^27.4.7",
+    "prettier": "^2.5.1",
+    "tslint": "^6.1.3",
+    "typescript": "^4.5.5"
   }
 }

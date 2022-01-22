@@ -1,5 +1,5 @@
 // Dependencies
-const uuid = require('uuid');
+import { v4 } from 'uuid';
 
 interface RelationProps {
     name: string;
@@ -16,7 +16,7 @@ class Relation {
     to: string;
 
     constructor({name, type, from, to}:RelationProps) {
-        this.id = uuid.v4();
+        this.id = v4();
         this.name = name;
         this.type = type || 'positive'; // Positive by default
         // An edge is between two entities

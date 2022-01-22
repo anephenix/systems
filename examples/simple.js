@@ -1,4 +1,4 @@
-const { System, Entity, Relation, Loop } = require('../dist');
+const { System, Entity, Relation } = require('../dist');
 
 // Create a system
 const system = new System({
@@ -6,44 +6,51 @@ const system = new System({
 });
 
 // Create an entity
-const entity = new Entity({
+const buyVolume = new Entity({
   name: 'buy volume',
   type: 'quantifiable',
 });
 
 // Create another entity
-const secondEntity = new Entity({
+const sharePrice = new Entity({
   name: 'share price',
   type: 'quantifiable',
 });
 
 // Add an entity to the system
-system.addEntity(entity);
+system.addEntity(buyVolume);
 
 // Add another node to the system
-system.addEntity(secondEntity);
+system.addEntity(sharePrice);
 
 // Create a relation from the first entity to the second entity
-const firstRelation = new Relation({
-  name: 'buying volume drives share price increases',
+const driveUpPrice = new Relation({
+  name: 'buying volume drives share price increases, and vice versa',
   type: 'positive',
-  from: entity.id,
-  to: secondEntity.id,
+  from: buyVolume.id,
+  to: sharePrice.id,
 });
 
 // Create a relation from the second entity back to the first entity
-const secondRelation = new Relation({
-  name: 'share price increases drive others to purchase shares',
+const followTheFlock = new Relation({
+  name:
+    'share price increases drive others to purchase shares, increasing buy volume, and vice versa',
   type: 'positive',
-  from: secondEntity.id,
-  to: entity.id,
+  from: sharePrice.id,
+  to: buyVolume.id,
 });
 
 // Add the first relation to the system
-system.addRelation(firstRelation);
+system.addRelation(driveUpPrice);
 
 // Add the second relation to the system
-system.addRelation(secondRelation);
+system.addRelation(followTheFlock);
+
+// Automatically create loops in the system from the entities
+system.detectLoops();
+
+console.log({ loops: system.loops });
+console.log({ loop: system.loops[0] });
 
 /**
  * TODO - how to do loop detection?
@@ -64,19 +71,3 @@ system.addRelation(secondRelation);
  *   At this point, it might be a good idea to start to implement a test suite for this code, and add it to GitHub, and do a few other things
  *
  *  */
-
-/**
- * TODO LIST
- *
- * - Be able to create a system
- * - Be able to add nodes to that system
- * - Be able to remove nodes from that system
- * - Be able to rename a node
- * - Be able to add an edge between two nodes
- * - Be able to remove an edge between two nodes
- * - Be able to rename an edge
- * - Be able to change the type of an edge
- * - Be able to change where the edge is from
- * - Be able to change where the edge is to
- * - Detect loops that exist between nodes
- */

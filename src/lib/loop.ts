@@ -1,5 +1,5 @@
 // Dependencies
-const uuid = require('uuid');
+import { v4 } from 'uuid';
 
 interface LoopProps {
     name: string;
@@ -15,9 +15,9 @@ class Loop {
     entities: Array<string>;
 
     constructor({name,type}:LoopProps) {
-        this.id = uuid.v4();
+        this.id = v4();
         this.name = name;
-        this.type = type || 'balancing'; // Balancing or reinforcing
+        this.type = type;
         this.relations = [];
         this.entities = [];
     }

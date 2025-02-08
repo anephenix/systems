@@ -1,5 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
 exports.Loop = exports.Relation = exports.Entity = exports.System = void 0;
 var System = require('./system');
 exports.System = System;

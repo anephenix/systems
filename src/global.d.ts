@@ -25,5 +25,11 @@ export type RelationType = {
 
 export type LoopSubType = 'reinforcing' | 'balancing';
 
-export type LoopType = any;
+export type LoopType = {
+    id?: string;
+    name?: string;
+    type: LoopSubType;
+    relations: Array<string>;
+    entities: Array<string>;
+};
 

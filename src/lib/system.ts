@@ -66,7 +66,7 @@ export default class System {
 		if (path.includes(id)) {
 			// We have looped, now check if the system has that loop, albeit in a different order?
 			let matchFound = false;
-			this.loops.forEach((loop:any) => {
+			this.loops.forEach((loop:LoopType) => {
 				if (loop.relations.every((rId:string) => path.includes(rId))) {
 					matchFound = true;
 				}

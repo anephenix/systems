@@ -1,26 +1,24 @@
 // Dependencies
 import { v4 } from 'uuid';
+import { LoopSubType } from '../global';
 
 interface LoopProps {
     name: string;
-    type: 'reinforcing' | 'balancing';
+    type: LoopSubType;
 }
 
-class Loop {
+export default class Loop {
+	id: string;
+	name: string;
+	type: LoopSubType;
+	relations: Array<string>;
+	entities: Array<string>;
 
-    id: string;
-    name: string;
-    type: 'reinforcing' | 'balancing';
-    relations: Array<string>;
-    entities: Array<string>;
-
-    constructor({name,type}:LoopProps) {
-        this.id = v4();
-        this.name = name;
-        this.type = type;
-        this.relations = [];
-        this.entities = [];
-    }
+	constructor({name,type}:LoopProps) {
+		this.id = v4();
+		this.name = name;
+		this.type = type;
+		this.relations = [];
+		this.entities = [];
+	}
 }
-
-module.exports = Loop;

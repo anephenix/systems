@@ -1,5 +1,4 @@
 describe('system', () => {
-  it.todo('should have a unique id');
-
-  it.todo('can have a name');
+  it('should have a unique id');
+  it('can have a name');
 });

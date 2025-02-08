@@ -49,6 +49,7 @@ system.addRelation(followTheFlock);
 // Automatically create loops in the system from the entities
 system.detectLoops();
 
+console.log({ system });
 console.log({ loops: system.loops });
 console.log({ loop: system.loops[0] });
 

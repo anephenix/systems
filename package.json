@@ -41,7 +41,7 @@
     "husky": "^9.1.7",
     "mocha": "^11.1.0",
     "nyc": "^17.1.0",
-    "prettier": "^2.5.1",
+    "prettier": "^3.4.2",
     "size-limit": "^11.1.6",
     "size-limit-preset-node-lib": "^0.3.0",
     "ts-node": "^10.9.2",

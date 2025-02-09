@@ -1,13 +1,13 @@
 {
   "name": "@anephenix/systems",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Systems",
   "main": "dist/index.js",
   "engines": {
     "node": ">=10"
   },
   "scripts": {
-		"build": "tsc --project tsconfig.json",
+    "build": "tsc --project tsconfig.json",
     "cover": "NODE_ENV=test npx nyc --reporter=lcov npm t",
     "lint": "npx eslint .",
     "prepare-patch-release": "npm run build && npm run size && npm run update-changelog && git add CHANGELOG.md && git commit -m \"Updated changelog\" && npm version patch",

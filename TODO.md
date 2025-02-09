@@ -19,7 +19,7 @@
 - [x] Add size limit
 - [x] Setup script to publish updates automatically
 - [ ] Update husky hooks
-- [ ] Publish NPM package
-- [ ] Added status badges and track in relevant locations
+- [x] Publish NPM package
+- [x] Added status badges and track in relevant locations
 - [ ] Update README on usage
 - [ ] Put the library to use

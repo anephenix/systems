@@ -7,3 +7,5 @@ A Node.js library for the logic used in Systems Thinking diagrams.
 npm i @anephenix/systems
 
 ### Usage
+
+TODO - define this

@@ -21,4 +21,5 @@
 - [ ] Update husky hooks
 - [ ] Publish NPM package
 - [ ] Added status badges and track in relevant locations
+- [ ] Update README on usage
 - [ ] Put the library to use

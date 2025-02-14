@@ -19,6 +19,7 @@ export type RelationType = {
     type: RelationSubType;
     from: string;
     to: string;
+    validate: () => void;
 }
 
 // Loop

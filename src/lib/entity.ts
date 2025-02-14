@@ -16,5 +16,12 @@ export default class Entity {
 		this.id = v4();
 		this.name = name;
 		this.type = type;
+		this.validate();
+	}
+
+	validate() {
+		if (this.type !== 'quantifiable' && this.type !== 'non-quantifiable') {
+			throw new Error('Invalid entity type - must be either quantifiable or non-quantifiable');
+		}
 	}
 }

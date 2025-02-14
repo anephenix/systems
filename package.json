@@ -2,7 +2,7 @@
   "name": "@anephenix/systems",
   "version": "0.0.3",
   "description": "Systems",
-  "main": "dist/index.js",
+  "main": "dist/lib/index.js",
   "engines": {
     "node": ">=10"
   },

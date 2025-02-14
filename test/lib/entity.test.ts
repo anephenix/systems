@@ -1,10 +1,10 @@
-import Entity from '../../dist/entity';
+import Entity from '../../dist/lib/entity';
 import assert from 'assert';
 
 describe('entity', () => {
 	it('should have a unique id', () => {
-		const entity = new Entity({ name: 'Buying volume' });
-		const secondEntity = new Entity({ name: 'Selling volume' });
+		const entity = new Entity({ name: 'Buying volume', type: 'quantifiable' });
+		const secondEntity = new Entity({ name: 'Selling volume', type: 'quantifiable' });
 		assert(entity.id !== undefined);
 		assert(entity.id !== secondEntity.id);
 		assert.strictEqual(entity.id.length, 36);
@@ -12,12 +12,13 @@ describe('entity', () => {
 	});
 
 	it('can have a name', () => {
-		const entity = new Entity({ name: 'Buying volume' });
+		const entity = new Entity({ name: 'Buying volume', type: 'quantifiable' });
 		assert.strictEqual(entity.name, 'Buying volume');
 	});
 
 	it('will have a type of either quantifiable or non-quantifiable', () => {
-		const entity = new Entity({ name: 'Transaction volume', type: 'numeric' });
-		assert.strictEqual(entity.type, 'numeric');
+		assert.throws(() => {
+			new Entity({ name: 'Transaction volume', type: 'numeric' });
+		}, /Invalid entity type - must be either quantifiable or non-quantifiable/);
 	});
 });

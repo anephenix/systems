@@ -1,10 +1,15 @@
 // Dependencies
-import { System, Entity, Relation, Loop } from '../../dist/lib';
+import { System, Entity, Relation } from '../../dist/lib';
+import { beforeEach } from 'mocha';
 import assert from 'assert';
 
 describe('system', () => {
 
-	const system = new System({name: 'Financial market'});
+	let system;
+
+	beforeEach(() => {
+		system = new System({name: 'Financial market'});
+	});
 
 	it('should have a unique id', () => {
 		assert(system.id !== undefined);
@@ -14,8 +19,30 @@ describe('system', () => {
 		assert.strictEqual(system.name, 'Financial market');
 	});
 
-	it('can have multiple entities');
-	it('can have multiple relations');
+	it('can have multiple entities', () => {
+		const entity1 = new Entity({name: 'Revenue', type: 'quantifiable'});
+		const entity2 = new Entity({name: 'Costs', type: 'quantifiable'});
+		system.addEntity(entity1);
+		system.addEntity(entity2);
+		assert.strictEqual(system.entities.length, 2);
+	});
+
+	it('can have multiple relations', () => {
+		const entity1 = new Entity({name: 'Revenue', type: 'quantifiable'});
+		const entity2 = new Entity({name: 'Costs', type: 'quantifiable'});
+		const relation = new Relation({name: 'Revenue impact on costs', type: 'positive', from: entity1.id, to: entity2.id});
+		system.addRelation(relation);
+		const entity3 = new Entity({name: 'Savings', type: 'quantifiable'});
+		const entity4 = new Entity({name: 'Interest', type: 'quantifiable'});
+		const relation1 = new Relation({name: 'Savings impact on interest', type: 'positive', from: entity3.id, to: entity4.id});
+		const relation2 = new Relation({name: 'Interest impact on savings', type: 'positive', from: entity4.id, to: entity3.id});
+		system.addEntity(entity3);
+		system.addEntity(entity4);
+		system.addRelation(relation1);
+		system.addRelation(relation2);
+		assert.strictEqual(system.relations.length, 3);
+	});
+
 	it('can have multiple loops');
 
 	describe("#addEntity", () => {
@@ -44,11 +71,31 @@ describe('system', () => {
 			const relation2 = new Relation({name: 'Interest impact on savings', type: 'positive', from: entity2.id, to: entity1.id});
 			system.addLoop({name: 'Compound interest loop', type: 'reinforcing', entities: [entity1.id, entity2.id], relations: [relation1.id, relation2.id]});
 			assert.strictEqual(system.loops.length, 1);
+			assert.equal(system.loops[0].name, 'Compound interest loop');
+			assert.equal(system.loops[0].type, 'reinforcing');
 		});
 	});
 
 	describe('#detectLoopType', () => {
 		it('should detect either a reinforcing or a balancing loop');
+		/* 
+		, () => {
+			const entity1 = new Entity({name: 'Savings', type: 'quantifiable'});
+			const entity2 = new Entity({name: 'Interest', type: 'quantifiable'});
+			const entity3 = new Entity({name: 'Expenditure', type: 'quantifiable'});
+			const relation1 = new Relation({name: 'Savings impact on interest', type: 'positive', from: entity1.id, to: entity2.id});
+			const relation2 = new Relation({name: 'Interest impact on savings', type: 'positive', from: entity2.id, to: entity1.id});
+			const relation3 = new Relation({name: 'Expenditure impact on savings', type: 'negative', from: entity3.id, to: entity1.id});
+			const relation4 = new Relation({name: 'Savings impact on expenditure', type: 'positive', from: entity1.id, to: entity3.id});
+			system.addRelation(relation1);
+			system.addRelation(relation2);
+			system.addRelation(relation3);
+			system.addRelation(relation4);
+			const path = [relation1.id, relation2.id];
+			assert.equal(system.detectLoopType(path), 'reinforcing');
+			const otherPath = [relation3.id, relation4.id];
+			assert.equal(system.detectLoopType(otherPath), 'balancing');
+		}); */
 	});
 
 	describe('#detectEntitiesInLoop', () => {

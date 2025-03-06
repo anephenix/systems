@@ -92,13 +92,31 @@ describe('system', () => {
 			const path = [relation1.id, relation2.id];
 			assert.equal(system.detectLoopType(path), 'reinforcing');
 			const otherPath = [relation3.id, relation4.id];
-			// NOTE - it detects a reinforcing loop, but it should be a balancing loop - why?
 			assert.equal(system.detectLoopType(otherPath), 'balancing');
 		});
 	});
 
 	describe('#detectEntitiesInLoop', () => {
-		it('should detect the entities in a loop');
+		it('should detect the entities in a loop', () => {
+			const entity1 = new Entity({name: 'Savings', type: 'quantifiable'});
+			const entity2 = new Entity({name: 'Interest', type: 'quantifiable'});
+			const entity3 = new Entity({name: 'Expenditure', type: 'quantifiable'});
+			const relation1 = new Relation({name: 'Savings impact on interest', type: 'positive', from: entity1.id, to: entity2.id});
+			const relation2 = new Relation({name: 'Interest impact on savings', type: 'positive', from: entity2.id, to: entity1.id});
+			const relation3 = new Relation({name: 'Expenditure impact on savings', type: 'negative', from: entity3.id, to: entity1.id});
+			const relation4 = new Relation({name: 'Savings impact on expenditure', type: 'positive', from: entity1.id, to: entity3.id});
+			system.addEntity(entity1);
+			system.addEntity(entity2);
+			system.addEntity(entity3);
+			system.addRelation(relation1);
+			system.addRelation(relation2);
+			system.addRelation(relation3);
+			system.addRelation(relation4);
+			const path = [relation1.id, relation2.id];
+			assert.deepEqual(system.detectEntitiesInLoop(path), [entity1.id, entity2.id]);
+			const otherPath = [relation3.id, relation4.id];
+			assert.deepEqual(system.detectEntitiesInLoop(otherPath), [entity3.id, entity1.id]);
+		});
 	});
 
 	describe('#traverse', () => {

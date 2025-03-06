@@ -1,4 +1,5 @@
-import Entity from '../../dist/lib/entity';
+import { EntitySubType } from '../../src/global';
+import Entity from '../../src/lib/entity';
 import assert from 'assert';
 
 describe('entity', () => {
@@ -18,7 +19,7 @@ describe('entity', () => {
 
 	it('will have a type of either quantifiable or non-quantifiable', () => {
 		assert.throws(() => {
-			new Entity({ name: 'Transaction volume', type: 'numeric' });
+			new Entity({ name: 'Transaction volume', type: 'numeric' as EntitySubType });
 		}, /Invalid entity type - must be either quantifiable or non-quantifiable/);
 	});
 });

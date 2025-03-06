@@ -1,4 +1,4 @@
-import { Entity, Relation } from "../../dist/lib";
+import { Entity, Relation } from "../../src/lib";
 import assert from "assert";
 
 describe('relation', () => {

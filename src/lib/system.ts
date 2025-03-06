@@ -16,6 +16,8 @@ interface AddLoopProps {
     relations: Array<string>;
 }
 
+const isEven = (num:number) => num % 2 === 0;
+
 // The System Class
 
 export default class System {
@@ -47,8 +49,12 @@ export default class System {
 
 	detectLoopType(path:Array<string>) {
 		const relations = this.relations.filter(r => path.includes(r.id));
-		const negativeAmount = relations.map(r => r.type === 'negative').length;
-		if (negativeAmount === 0 || negativeAmount % 2 === 0) return 'reinforcing';
+		const relationTypes = relations.map(r => r.type);
+		if (relationTypes.every(r => r === 'positive')) return 'reinforcing';
+		if (relationTypes.includes('negative') && relationTypes.includes('positive')) return 'balancing';
+		// count the number of negative relations and if it's even, it's reinforcing, if it's odd, it's balancing
+		const negativeRelations = relationTypes.filter(r => r === 'negative');
+		if (isEven(negativeRelations.length)) return 'reinforcing';
 		return 'balancing';
 	}
 

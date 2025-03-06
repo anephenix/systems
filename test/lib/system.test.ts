@@ -1,5 +1,5 @@
 // Dependencies
-import { System, Entity, Relation } from '../../dist/lib';
+import { System, Entity, Relation } from '../../src/lib';
 import { beforeEach } from 'mocha';
 import assert from 'assert';
 
@@ -77,9 +77,7 @@ describe('system', () => {
 	});
 
 	describe('#detectLoopType', () => {
-		it('should detect either a reinforcing or a balancing loop');
-		/* 
-		, () => {
+		it('should detect either a reinforcing or a balancing loop', () => {
 			const entity1 = new Entity({name: 'Savings', type: 'quantifiable'});
 			const entity2 = new Entity({name: 'Interest', type: 'quantifiable'});
 			const entity3 = new Entity({name: 'Expenditure', type: 'quantifiable'});
@@ -94,8 +92,9 @@ describe('system', () => {
 			const path = [relation1.id, relation2.id];
 			assert.equal(system.detectLoopType(path), 'reinforcing');
 			const otherPath = [relation3.id, relation4.id];
+			// NOTE - it detects a reinforcing loop, but it should be a balancing loop - why?
 			assert.equal(system.detectLoopType(otherPath), 'balancing');
-		}); */
+		});
 	});
 
 	describe('#detectEntitiesInLoop', () => {

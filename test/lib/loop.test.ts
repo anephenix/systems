@@ -1,10 +1,10 @@
-import { Loop } from "../../dist/lib";
+import { Loop } from "../../src/lib";
 import assert from "assert";
 
 describe('loop', () => {
 
-	const loop = new Loop({ name: 'compounding interest', type: 'reinforcing', entities: [], relations: [] });
-	const loop2 = new Loop({ name: 'interest rates and inflation', type: 'balancing', entities: [], relations: [] });
+	const loop = new Loop({ name: 'compounding interest', type: 'reinforcing' });
+	const loop2 = new Loop({ name: 'interest rates and inflation', type: 'balancing' });
 
 	it('should have a unique id', () => {
 		assert(loop.id !== undefined);

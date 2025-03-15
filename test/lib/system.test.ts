@@ -119,12 +119,90 @@ describe('system', () => {
 		});
 	});
 
+	describe('#isClosedLoopRatherThanChain', () => {
+		it('should return true if the loop is closed');
+		it('should return false if the loop is not closed');
+	});
+
 	describe('#traverse', () => {
-		it('should look at all the relations that link entities until it has seen them all');
+		it('should look at all the relations that link entities until it has seen them all', () => {
+			const entity1 = new Entity({name: 'Savings', type: 'quantifiable'});
+			const entity2 = new Entity({name: 'Interest', type: 'quantifiable'});
+			const entity3 = new Entity({name: 'Expenditure', type: 'quantifiable'});
+			const relation1 = new Relation({name: 'Savings impact on interest', type: 'positive', from: entity1.id, to: entity2.id});
+			const relation2 = new Relation({name: 'Interest impact on savings', type: 'positive', from: entity2.id, to: entity1.id});
+			const relation3 = new Relation({name: 'Expenditure impact on savings', type: 'negative', from: entity3.id, to: entity1.id});
+			const relation4 = new Relation({name: 'Savings impact on expenditure', type: 'positive', from: entity1.id, to: entity3.id});
+			system.addEntity(entity1);
+			system.addEntity(entity2);
+			system.addEntity(entity3);
+			system.addRelation(relation1);
+			system.addRelation(relation2);
+			system.addRelation(relation3);
+			system.addRelation(relation4);
+
+			const path = [relation1.id, relation2.id];
+			const otherPath = [relation3.id, relation4.id];
+			system.traverse(relation1, path);
+			system.traverse(relation3, otherPath);
+			assert.strictEqual(system.loops.length, 2);
+			assert.deepEqual(system.loops[0].relations, path);
+			assert.deepEqual(system.loops[1].relations, otherPath);
+			assert.deepEqual(system.loops[0].entities, [entity1.id, entity2.id]);
+			assert.deepEqual(system.loops[1].entities, [entity3.id, entity1.id]);
+			assert.equal(system.loops[0].type, 'reinforcing');
+			assert.equal(system.loops[1].type, 'balancing');
+		});
 	});
 
 	describe('#detectLoops', () => {
-		it('should detect all the loops in the system');
+		it('should detect all the loops in the system', () => {
+			const entity1 = new Entity({name: 'Savings', type: 'quantifiable'});
+			const entity2 = new Entity({name: 'Interest', type: 'quantifiable'});
+			const entity3 = new Entity({name: 'Expenditure', type: 'quantifiable'});
+			const relation1 = new Relation({name: 'Savings impact on interest', type: 'positive', from: entity1.id, to: entity2.id});
+			const relation2 = new Relation({name: 'Interest impact on savings', type: 'positive', from: entity2.id, to: entity1.id});
+			const relation3 = new Relation({name: 'Expenditure impact on savings', type: 'negative', from: entity3.id, to: entity1.id});
+			const relation4 = new Relation({name: 'Savings impact on expenditure', type: 'positive', from: entity1.id, to: entity3.id});
+			system.addEntity(entity1);
+			system.addEntity(entity2);
+			system.addEntity(entity3);
+			system.addRelation(relation1);
+			system.addRelation(relation2);
+			system.addRelation(relation3);
+			system.addRelation(relation4);
+			system.detectLoops();
+
+			// console.log(system.loops);
+
+			// Create a simple function that can for each loop in the system's loops, print out the name of the entities and relations in the loop
+			// function printLoops(system) {
+			// 	system.loops.forEach(loop => {
+			// 		console.log(`Loop Type: ${loop.type}`);
+			// 		console.log('Entities:');
+			// 		loop.entities.forEach(entityId => {
+			// 			const entity = system.entities.find(e => e.id === entityId);
+			// 			console.log(`- ${entity.name}`);
+			// 		});
+			// 		console.log('Relations:');
+			// 		loop.relations.forEach(relationId => {
+			// 			const relation = system.relations.find(r => r.id === relationId);
+			// 			console.log(`- ${relation.name}`);
+			// 		});
+			// 	});
+			// }
+
+			// printLoops(system);
+
+			assert.strictEqual(system.loops.length, 2);
+			// It detects 3 loops instead of 2
+			assert.deepEqual(system.loops[0].relations, [relation1.id, relation2.id]);
+			assert.deepEqual(system.loops[1].relations, [relation3.id, relation4.id]);
+			assert.deepEqual(system.loops[0].entities, [entity1.id, entity2.id]);
+			assert.deepEqual(system.loops[1].entities, [entity3.id, entity1.id]);
+			assert.equal(system.loops[0].type, 'reinforcing');
+			assert.equal(system.loops[1].type, 'balancing');
+		});
 	});
 
 

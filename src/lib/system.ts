@@ -16,6 +16,15 @@ interface AddLoopProps {
     relations: Array<string>;
 }
 
+/*
+	There is a rule in Caual Loop Diagrams that if you count the number of 
+	relationships that are negative and that number is even, then the loop is
+	reinforcing. If the number is odd, then the loop is balancing.
+
+	I could be wrong, but I think that this assumes that all relationships are
+	equal in their effect on entities within a system. I thinkt that this might
+	not be the case.
+*/
 const isEven = (num:number) => num % 2 === 0;
 
 // The System Class
@@ -67,42 +76,54 @@ export default class System {
 		return entities;
 	}
 
+	isClosedLoopRatherThanChain(path:Array<string>) {
+		const counts = {};
+		path.forEach((id:string) => {
+			const relation = this.relations.find(r => r.id === id);
+			if (!relation) return false;
+			const { from, to } = relation;
+			if (!counts[from]) counts[from] = 1;
+			else counts[from]++;
+			if (!counts[to]) counts[to] = 1;
+			else counts[to]++;
+		});
+		const values = Object.values(counts);
+		if (values.every(v => v === 2)) return true;
+		return false;
+	}
+
 	traverse(relation:Relation, path:Array<string>) {
+		const newPath = [...path];
 		const { id, to } = relation;
-		if (path.includes(id)) {
-			// We have looped, now check if the system has that loop, albeit in a different order?
+		if (newPath.includes(id)) {
 			let matchFound = false;
 			this.loops.forEach((loop:LoopType) => {
-				if (loop.relations.every((rId:string) => path.includes(rId))) {
+				if (loop.relations.every((rId:string) => newPath.includes(rId))) {
 					matchFound = true;
 				}
 			});
 			if (!matchFound) {
-				const type = this.detectLoopType(path);
-				const entities = this.detectEntitiesInLoop(path);
-				this.loops.push({type, relations: path, entities});
+				const type = this.detectLoopType(newPath);
+				if (this.isClosedLoopRatherThanChain(newPath)) {
+					const entities = this.detectEntitiesInLoop(newPath);
+					this.loops.push({type, relations: newPath, entities});
+				}
 			}
 		} else {
-			path.push(relation.id);
+			newPath.push(id);
 			const linkedFromRelations = this.relations.filter(r => r.from === to);
-			// No links onwards, end the loop
 			if (linkedFromRelations.length === 0) return;
-			// send the path and the linkedFromRelations to the next function
 			linkedFromRelations.forEach((lfr:Relation) => {
-				this.traverse(lfr, path);
-			});    
+				this.traverse(lfr, newPath);
+			});
 		}
 	}
 
-	detectLoops() {
-		// for each relation in the system
-		// take the first one
+	detectLoops () {
 		this.relations.forEach((relation:Relation) => {
-			const path:Array<string> = [];
-			path.push(relation.id);
+			const path = [relation.id];
 			const { to } = relation;
 			const linkedFromRelations = this.relations.filter(r => r.from === to);
-			// No links onwards, end the loop
 			if (linkedFromRelations.length === 0) return;
 			linkedFromRelations.forEach((lfr:Relation) => {
 				this.traverse(lfr, path);

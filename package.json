@@ -1,6 +1,6 @@
 {
   "name": "@anephenix/systems",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Systems",
   "main": "dist/lib/index.js",
   "engines": {

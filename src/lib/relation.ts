@@ -20,7 +20,7 @@ export default class Relation {
 	constructor({name, type, from, to}:RelationProps) {
 		this.id = v4();
 		this.name = name;
-		this.type = type || 'positive'; // Positive by default
+		this.type = type; // Either positive or negative
 		// An edge is between two entities
 		this.from = from; // The ID of the from entity
 		this.to = to; // The ID of the to entity

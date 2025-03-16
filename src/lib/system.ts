@@ -60,7 +60,6 @@ export default class System {
 		const relations = this.relations.filter(r => path.includes(r.id));
 		const relationTypes = relations.map(r => r.type);
 		if (relationTypes.every(r => r === 'positive')) return 'reinforcing';
-		if (relationTypes.includes('negative') && relationTypes.includes('positive')) return 'balancing';
 		// count the number of negative relations and if it's even, it's reinforcing, if it's odd, it's balancing
 		const negativeRelations = relationTypes.filter(r => r === 'negative');
 		if (isEven(negativeRelations.length)) return 'reinforcing';

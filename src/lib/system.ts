@@ -17,12 +17,12 @@ interface AddLoopProps {
 }
 
 /*
-	There is a rule in Caual Loop Diagrams that if you count the number of 
+	There is a rule in Causal Loop Diagrams that if you count the number of 
 	relationships that are negative and that number is even, then the loop is
 	reinforcing. If the number is odd, then the loop is balancing.
 
 	I could be wrong, but I think that this assumes that all relationships are
-	equal in their effect on entities within a system. I thinkt that this might
+	equal in their effect on entities within a system. I think that this might
 	not be the case.
 */
 const isEven = (num:number) => num % 2 === 0;
@@ -50,6 +50,14 @@ export default class System {
 
 	findEntity(id:string) {
 		return this.entities.find(e => e.id === id);
+	}
+	
+	updateEntity(entityId:string, entity:Pick<EntityType, 'name' | 'type'>) {
+		const { name, type } = entity;
+		const index = this.entities.findIndex(e => e.id === entityId);
+		if (index === -1) throw new Error('Entity not found');
+		if (name) this.entities[index].name = name;
+		if (type) this.entities[index].type = type;
 	}
 
 	removeEntity(entityId:string) {

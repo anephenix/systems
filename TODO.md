@@ -3,7 +3,7 @@
 - [x] Be able to create a system
 - [x] Be able to add entities to that system
 - [x] Be able to remove entities from that system
-- [ ] Be able to rename an entity
+- [x] Be able to rename an entity
 - [x] Be able to add a relation between two entities
 - [x] Be able to remove a relation between two entities
 - [ ] Be able to rename a relation

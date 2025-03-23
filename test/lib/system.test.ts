@@ -130,6 +130,51 @@ describe('system', () => {
 
 	});
 
+	describe("#findEntity", () => {
+
+		describe('when a valid entity id is provided', () => {
+			it('should find and return the entity', () => {
+				const entity = new Entity({name: 'Revenue', type: 'quantifiable'});
+				system.addEntity(entity);
+				const foundEntity = system.findEntity(entity.id);
+				assert.strictEqual(foundEntity, entity);
+			});
+		});
+
+		describe('when an invalid entity id is provided', () => {
+			it('should return undefined', () => {
+				const entity = new Entity({name: 'Revenue', type: 'quantifiable'});
+				system.addEntity(entity);
+				const foundEntity = system.findEntity('123');
+				assert.strictEqual(foundEntity, undefined);
+			});
+		});
+
+	});
+
+	describe('#updateEntity', () => {
+
+		describe('when a valid entity id is provided', () => {
+
+			it('should update the entity', () => {
+				const entity = new Entity({name: 'Revenue', type: 'quantifiable'});
+				system.addEntity(entity);
+				system.updateEntity(entity.id, {name: 'Sales revenue'});
+				const foundEntity = system.findEntity(entity.id);
+				assert.strictEqual(foundEntity.name, 'Sales revenue');
+			});
+		});
+
+		describe('when an invalid entity id is provided', () => {
+			it('should throw an error', () => {
+				assert.throws(() => {
+					system.updateEntity('123', {name: 'Sales revenue'});
+				}, /Entity not found/);
+			});
+		});
+
+	});
+
 	describe("#addRelation", () => {
 		it('should add a relation to the system', () => {
 			const entity1 = new Entity({name: 'Revenue', type: 'quantifiable'});

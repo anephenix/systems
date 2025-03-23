@@ -1,5 +1,16 @@
 # CHANGELOG
 
+### 0.0.5 - Sunday 23rd March, 2025
+
+- Added updateRelation function and tests
+- Added a way to rename an Entity and change its type
+- Added the removeRelation function call and added tests
+- Refined the removeEntity function call to remove associated relations and loops as well
+- Merge branch 'main' of github.com:anephenix/systems
+- Added the ability to remove a node
+- Merge pull request #24 from anephenix/dependabot/npm_and_yarn/typescript-eslint-8.26.1
+- Bump typescript-eslint from 8.26.0 to 8.26.1
+
 ### 0.0.4 - Sunday 16th March, 2025
 
 - Some tweaks to loop detection and setting up a relation

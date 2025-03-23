@@ -53,10 +53,12 @@ export default class System {
 	}
 
 	removeEntity(entityId:string) {
-		if (!this.findEntity(entityId)) {
-			throw new Error('Entity not found');
-		}
+		if (!this.findEntity(entityId)) throw new Error('Entity not found');
+		// Find any relations that include the entity and remove them
+		this.relations = this.relations.filter(r => r.from !== entityId && r.to !== entityId);
+		// Remove the entity
 		this.entities = this.entities.filter(e => e.id !== entityId);
+		this.detectLoops();
 	}
 
 	addRelation(relation:RelationType) {
@@ -130,6 +132,7 @@ export default class System {
 	}
 
 	detectLoops () {
+		this.loops = [];
 		this.relations.forEach((relation:Relation) => {
 			const path = [relation.id];
 			const { to } = relation;

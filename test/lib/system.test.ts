@@ -15,6 +15,7 @@ describe('system', () => {
 		assert(system.id !== undefined);
 		assert.strictEqual(system.id.length, 36);
 	});
+
 	it('can have a name', () => {
 		assert.strictEqual(system.name, 'Financial market');
 	});
@@ -84,6 +85,39 @@ describe('system', () => {
 				system.removeEntity(entity.id);
 				assert.strictEqual(system.entities.length, 0);
 			});
+
+			it('should also remove any relations that are associated with the entity', () => {
+				const entity1 = new Entity({name: 'Revenue', type: 'quantifiable'});
+				system.addEntity(entity1);
+				const entity2 = new Entity({name: 'Profit', type: 'quantifiable'});
+				system.addEntity(entity2);
+				const relation = new Relation({name: 'Revenue impact on profit', type: 'positive', from: entity1.id, to: entity2.id});
+				system.addRelation(relation);
+				assert.strictEqual(system.relations.length, 1);
+				system.removeEntity(entity1.id);
+				assert.strictEqual(system.entities.length, 1);
+				assert.strictEqual(system.relations.length, 0);
+			});
+
+			it('should also remove any loops that are associated with the entity', () => {
+				const entity1 = new Entity({name: 'Revenue', type: 'quantifiable'});
+				system.addEntity(entity1);
+				const entity2 = new Entity({name: 'Profit', type: 'quantifiable'});
+				system.addEntity(entity2);
+				const relation = new Relation({name: 'Revenue impact on profit', type: 'positive', from: entity1.id, to: entity2.id});
+				system.addRelation(relation);
+				// Add another relatiion to create a loop
+				const relation2 = new Relation({name: 'Profit impact on revenue', type: 'positive', from: entity2.id, to: entity1.id});
+				system.addRelation(relation2);
+				system.detectLoops();
+				assert.strictEqual(system.loops.length, 1);
+				assert.strictEqual(system.relations.length, 2);
+				system.removeEntity(entity1.id);
+				assert.strictEqual(system.entities.length, 1);
+				assert.strictEqual(system.relations.length, 0);
+				assert.strictEqual(system.loops.length, 0);
+			});
+
 		});
 
 		describe('when an invalid entity id is provided', () => {
@@ -93,6 +127,7 @@ describe('system', () => {
 				}, /Entity not found/);
 			});
 		});
+
 	});
 
 	describe("#addRelation", () => {

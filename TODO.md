@@ -6,10 +6,11 @@
 - [x] Be able to rename an entity
 - [x] Be able to add a relation between two entities
 - [x] Be able to remove a relation between two entities
-- [ ] Be able to rename a relation
-- [ ] Be able to change the type of a relation
-- [ ] Be able to change where the relation is from
-- [ ] Be able to change where the relation is to
+- [x] Be able to rename a relation
+- [x] Be able to change the name of a relation
+- [x] Be able to change the type of a relation
+- [x] Be able to change where the relation is from
+- [x] Be able to change where the relation is to
 - [x] Detect loops that exist between entities
 - [ ] Be able to run a simulation with assigned values
 

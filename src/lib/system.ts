@@ -77,6 +77,17 @@ export default class System {
 		return this.relations.find(r => r.id === id);
 	}
 
+	updateRelation(relationId:string, relation:Pick<RelationType, 'name' |  'from' | 'to' | 'type'>) {
+		const { name, from, to, type } = relation;
+		const index = this.relations.findIndex(r => r.id === relationId);
+		if (index === -1) throw new Error('Relation not found');
+		if (name) this.relations[index].name = name;
+		if (from) this.relations[index].from = from;
+		if (to) this.relations[index].to = to;
+		if (type) this.relations[index].type = type;
+		this.detectLoops();
+	}
+
 	removeRelation(relationId:string) {
 		if (!this.findRelation(relationId)) throw new Error('Relation not found');
 		this.relations = this.relations.filter(r => r.id !== relationId);

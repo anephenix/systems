@@ -185,6 +185,110 @@ describe('system', () => {
 		});
 	});
 
+	describe('#findRelation', () => {
+		
+		describe('when a valid relation id is provided', () => {
+			it('should find and return the relation', () => {
+				const entity1 = new Entity({name: 'Revenue', type: 'quantifiable'});
+				const entity2 = new Entity({name: 'Costs', type: 'quantifiable'});
+				const relation = new Relation({name: 'Revenue impact on costs', type: 'positive', from: entity1.id, to: entity2.id});
+				system.addRelation(relation);
+				const foundRelation = system.findRelation(relation.id);
+				assert.strictEqual(foundRelation, relation);
+			});
+		});
+
+		describe('when an invalid relation id is provided', () => {
+			it('should return undefined', () => {
+				const entity1 = new Entity({name: 'Revenue', type: 'quantifiable'});
+				const entity2 = new Entity({name: 'Costs', type: 'quantifiable'});
+				const relation = new Relation({name: 'Revenue impact on costs', type: 'positive', from: entity1.id, to: entity2.id});
+				system.addRelation(relation);
+				const foundRelation = system.findRelation('123');
+				assert.strictEqual(foundRelation, undefined);
+			});
+		});
+
+	});
+
+	describe('#updateRelation', () => {
+		
+		describe('when a valid relation id is provided', () => {
+
+			it('can update the relation\'s name', () => {
+				const entity1 = new Entity({name: 'Revenue', type: 'quantifiable'});
+				const entity2 = new Entity({name: 'Costs', type: 'quantifiable'});
+				const relation = new Relation({name: 'Revenue impact on costs', type: 'positive', from: entity1.id, to: entity2.id});
+				system.addRelation(relation);
+				system.updateRelation(relation.id, {name: 'Revenue impact on expenses'});
+				const foundRelation = system.findRelation(relation.id);
+				assert.strictEqual(foundRelation.name, 'Revenue impact on expenses');
+			});
+
+			it('can update the relation\'s type', () => {
+				const entity1 = new Entity({name: 'Revenue', type: 'quantifiable'});
+				const entity2 = new Entity({name: 'Costs', type: 'quantifiable'});
+				const relation = new Relation({name: 'Revenue impact on costs', type: 'positive', from: entity1.id, to: entity2.id});
+				system.addRelation(relation);
+				system.updateRelation(relation.id, {type: 'negative'});
+				const foundRelation = system.findRelation(relation.id);
+				assert.strictEqual(foundRelation.type, 'negative');
+			});
+
+			it('can update the relation\'s from entity', () => {
+				const entity1 = new Entity({name: 'Revenue', type: 'quantifiable'});
+				const entity2 = new Entity({name: 'Costs', type: 'quantifiable'});
+				const entity3 = new Entity({name: 'Profit', type: 'quantifiable'});
+				const relation = new Relation({name: 'Revenue impact on costs', type: 'positive', from: entity1.id, to: entity2.id});
+				system.addRelation(relation);
+				system.addEntity(entity3);
+				system.updateRelation(relation.id, {from: entity3.id});
+				const foundRelation = system.findRelation(relation.id);
+				assert.strictEqual(foundRelation.from, entity3.id);
+			});
+
+			it('can update the relation\'s to entity', () => {
+				const entity1 = new Entity({name: 'Revenue', type: 'quantifiable'});
+				const entity2 = new Entity({name: 'Costs', type: 'quantifiable'});
+				const entity3 = new Entity({name: 'Profit', type: 'quantifiable'});
+				const relation = new Relation({name: 'Revenue impact on costs', type: 'positive', from: entity1.id, to: entity2.id});
+				system.addRelation(relation);
+				system.addEntity(entity3);
+				system.updateRelation(relation.id, {to: entity3.id});
+				const foundRelation = system.findRelation(relation.id);
+				assert.strictEqual(foundRelation.to, entity3.id);
+			});
+
+			it('should also update any loops that have changed as a result of the relation update', () => {
+				const entity1 = new Entity({name: 'Revenue', type: 'quantifiable'});
+				const entity2 = new Entity({name: 'Profit', type: 'quantifiable'});
+				const relation = new Relation({name: 'Revenue impact on Profit', type: 'positive', from: entity1.id, to: entity2.id});
+				system.addEntity(entity1);
+				system.addEntity(entity2);
+				system.addRelation(relation);
+				// Add another relatiion to create a loop
+				const relation2 = new Relation({name: 'Profit impact on Revenue', type: 'positive', from: entity2.id, to: entity1.id});
+				system.addRelation(relation2);
+				system.detectLoops();
+				assert.strictEqual(system.loops.length, 1);
+				assert(system.loops[0].type, 'reinforcing');
+				system.updateRelation(relation.id, {type: 'negative'});
+				assert.strictEqual(system.loops.length, 1);
+				assert(system.loops[0].type, 'balancing');
+			});
+
+		});
+
+		describe('when an invalid relation id is provided', () => {
+			it('should throw an error', () => {
+				assert.throws(() => {
+					system.updateRelation('123', {name: 'Revenue impact on expenses'});
+				}, /Relation not found/);
+			});
+		});
+
+	});
+
 	describe('#removeRelation', () => {
 
 		describe('when a valid relation id is provided', () => {

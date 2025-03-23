@@ -140,6 +140,52 @@ describe('system', () => {
 		});
 	});
 
+	describe('#removeRelation', () => {
+
+		describe('when a valid relation id is provided', () => {
+
+			it('should remove a relation from the system', () => {
+				const entity1 = new Entity({name: 'Revenue', type: 'quantifiable'});
+				system.addEntity(entity1);
+				const entity2 = new Entity({name: 'Profit', type: 'quantifiable'});
+				system.addEntity(entity2);
+				const relation = new Relation({name: 'Revenue impact on Profit', type: 'positive', from: entity1.id, to: entity2.id});
+				system.addRelation(relation);
+				assert.strictEqual(system.relations.length, 1);
+				system.removeRelation(relation.id);
+				assert.strictEqual(system.relations.length, 0);
+			});
+
+			it('should also remove any loops that are associated with the relation', () => {
+				const entity1 = new Entity({name: 'Revenue', type: 'quantifiable'});
+				system.addEntity(entity1);
+				const entity2 = new Entity({name: 'Profit', type: 'quantifiable'});
+				system.addEntity(entity2);
+				const relation = new Relation({name: 'Revenue impact on Profit', type: 'positive', from: entity1.id, to: entity2.id});
+				system.addRelation(relation);
+				// Add another relatiion to create a loop
+				const relation2 = new Relation({name: 'Profit impact on Revenue', type: 'positive', from: entity2.id, to: entity1.id});
+				system.addRelation(relation2);
+				system.detectLoops();
+				assert.strictEqual(system.loops.length, 1);
+				assert.strictEqual(system.relations.length, 2);
+				system.removeRelation(relation.id);
+				assert.strictEqual(system.relations.length, 1);
+				assert.strictEqual(system.loops.length, 0);
+			});
+
+		});
+
+		describe('when an invalid relation id is provided', () => {
+			it('should throw an error', () => {
+				assert.throws(() => {
+					system.removeRelation('123');
+				}, /Relation not found/);
+			});
+		});
+
+	});
+
 	describe('#addLoop', () => {
 		it('should add a loop to the system', () => {
 			const entity1 = new Entity({name: 'Savings', type: 'quantifiable'});
@@ -286,7 +332,5 @@ describe('system', () => {
 			assert.equal(system.loops[1].type, 'balancing');
 		});
 	});
-
-
 
 });

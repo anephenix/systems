@@ -65,6 +65,16 @@ export default class System {
 		this.relations.push(relation);
 	}
 
+	findRelation(id:string) {
+		return this.relations.find(r => r.id === id);
+	}
+
+	removeRelation(relationId:string) {
+		if (!this.findRelation(relationId)) throw new Error('Relation not found');
+		this.relations = this.relations.filter(r => r.id !== relationId);
+		this.detectLoops();
+	}
+
 	addLoop(loop:AddLoopProps) {
 		this.loops.push(loop);
 	}
@@ -132,6 +142,16 @@ export default class System {
 	}
 
 	detectLoops () {
+		/*
+			This line is great in helping to detect loops that no longer exist 
+			due to removed entities/nodes, but the only issue is that if we do
+			this multiple times, we can end up recreating the same loops with
+			different ids, which isn't ideal.
+			
+			What might be better would be to detect any loops where their
+			underlying entities/relations have been removed and therefore 
+			remove those loops.
+		*/
 		this.loops = [];
 		this.relations.forEach((relation:Relation) => {
 			const path = [relation.id];

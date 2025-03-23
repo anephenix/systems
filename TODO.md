@@ -1,16 +1,16 @@
 # TODO List
 
 - [x] Be able to create a system
-- [x] Be able to add nodes to that system
-- [x] Be able to remove nodes from that system
-- [ ] Be able to rename a node
-- [x] Be able to add an edge between two nodes
-- [ ] Be able to remove an edge between two nodes
-- [ ] Be able to rename an edge
-- [ ] Be able to change the type of an edge
-- [ ] Be able to change where the edge is from
-- [ ] Be able to change where the edge is to
-- [x] Detect loops that exist between nodes
+- [x] Be able to add entities to that system
+- [x] Be able to remove entities from that system
+- [ ] Be able to rename an entity
+- [x] Be able to add a relation between two entities
+- [x] Be able to remove a relation between two entities
+- [ ] Be able to rename a relation
+- [ ] Be able to change the type of a relation
+- [ ] Be able to change where the relation is from
+- [ ] Be able to change where the relation is to
+- [x] Detect loops that exist between entities
 - [ ] Be able to run a simulation with assigned values
 
 ----

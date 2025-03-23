@@ -2,7 +2,7 @@
 
 - [x] Be able to create a system
 - [x] Be able to add nodes to that system
-- [ ] Be able to remove nodes from that system
+- [x] Be able to remove nodes from that system
 - [ ] Be able to rename a node
 - [x] Be able to add an edge between two nodes
 - [ ] Be able to remove an edge between two nodes

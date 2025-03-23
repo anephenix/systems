@@ -48,6 +48,17 @@ export default class System {
 		this.entities.push(entity);
 	}
 
+	findEntity(id:string) {
+		return this.entities.find(e => e.id === id);
+	}
+
+	removeEntity(entityId:string) {
+		if (!this.findEntity(entityId)) {
+			throw new Error('Entity not found');
+		}
+		this.entities = this.entities.filter(e => e.id !== entityId);
+	}
+
 	addRelation(relation:RelationType) {
 		this.relations.push(relation);
 	}

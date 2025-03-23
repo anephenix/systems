@@ -73,6 +73,28 @@ describe('system', () => {
 		});
 	});
 
+	describe('#removeEntity', () => {
+
+		describe('when a valid entity id is provided', () => {
+
+			it('should remove an entity from the system', () => {
+				const entity = new Entity({name: 'Revenue', type: 'quantifiable'});
+				system.addEntity(entity);
+				assert.strictEqual(system.entities.length, 1);
+				system.removeEntity(entity.id);
+				assert.strictEqual(system.entities.length, 0);
+			});
+		});
+
+		describe('when an invalid entity id is provided', () => {
+			it('should throw an error', () => {
+				assert.throws(() => {
+					system.removeEntity('123');
+				}, /Entity not found/);
+			});
+		});
+	});
+
 	describe("#addRelation", () => {
 		it('should add a relation to the system', () => {
 			const entity1 = new Entity({name: 'Revenue', type: 'quantifiable'});

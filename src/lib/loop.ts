@@ -3,8 +3,11 @@ import { v4 } from 'uuid';
 import { LoopSubType } from '../global';
 
 interface LoopProps {
+	id?: string;
     name: string;
     type: LoopSubType;
+	relations?: Array<string>;
+	entities?: Array<string>;
 }
 
 export default class Loop {
@@ -14,11 +17,11 @@ export default class Loop {
 	relations: Array<string>;
 	entities: Array<string>;
 
-	constructor({name,type}:LoopProps) {
-		this.id = v4();
+	constructor({id, name,type, relations, entities}:LoopProps) {
+		this.id = id || v4();
 		this.name = name;
 		this.type = type;
-		this.relations = [];
-		this.entities = [];
+		this.relations = relations || [];
+		this.entities = entities || [];
 	}
 }

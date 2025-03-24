@@ -1,6 +1,7 @@
 // Dependencies
 import { v4 } from 'uuid';
 import Relation from './relation';
+import Loop from './loop';
 import { EntityType, RelationType, LoopSubType, LoopType } from '../global';
 
 // Interfaces
@@ -147,7 +148,8 @@ export default class System {
 				const type = this.detectLoopType(newPath);
 				if (this.isClosedLoopRatherThanChain(newPath)) {
 					const entities = this.detectEntitiesInLoop(newPath);
-					this.loops.push({type, relations: newPath, entities});
+					const loop = new Loop({name: 'Loop', type, entities, relations: newPath});
+					this.loops.push(loop);
 				}
 			}
 		} else {
@@ -160,18 +162,17 @@ export default class System {
 		}
 	}
 
+	cleanupLoops() {
+		// For each loop, check if all the relations still exist
+		// If they don't, remove the loop
+		this.loops = this.loops.filter((loop:LoopType) => {
+			return loop.relations.every((rId:string) => {
+				return this.relations.find(r => r.id === rId);
+			});
+		});
+	}
+
 	detectLoops () {
-		/*
-			This line is great in helping to detect loops that no longer exist 
-			due to removed entities/nodes, but the only issue is that if we do
-			this multiple times, we can end up recreating the same loops with
-			different ids, which isn't ideal.
-			
-			What might be better would be to detect any loops where their
-			underlying entities/relations have been removed and therefore 
-			remove those loops.
-		*/
-		this.loops = [];
 		this.relations.forEach((relation:Relation) => {
 			const path = [relation.id];
 			const { to } = relation;
@@ -181,5 +182,6 @@ export default class System {
 				this.traverse(lfr, path);
 			});
 		});
+		this.cleanupLoops();
 	}
 }

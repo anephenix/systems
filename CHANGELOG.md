@@ -1,5 +1,9 @@
 # CHANGELOG
 
+### 0.0.6 - Monday 24th March, 2025
+
+- Improved referential integrity for loops, and added cleanupLoops function to remove loops that no longer exist
+
 ### 0.0.5 - Sunday 23rd March, 2025
 
 - Added updateRelation function and tests

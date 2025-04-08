@@ -1,5 +1,27 @@
 # CHANGELOG
 
+### 0.0.7 - Tuesday 8th April, 2025
+
+- Updated dependencies
+- Merge pull request #32 from anephenix/dependabot/npm_and_yarn/eslint-9.24.0
+- Merge pull request #31 from anephenix/dependabot/npm_and_yarn/eslint/js-9.24.0
+- Merge pull request #30 from anephenix/dependabot/npm_and_yarn/typescript-5.8.3
+- Merge pull request #29 from anephenix/dependabot/npm_and_yarn/typescript-eslint-8.29.0
+- Bump eslint from 9.23.0 to 9.24.0
+- Bump @eslint/js from 9.23.0 to 9.24.0
+- Bump typescript from 5.8.2 to 5.8.3
+- Bump typescript-eslint from 8.28.0 to 8.29.0
+- Merge pull request #28 from anephenix/dependabot/npm_and_yarn/typescript-eslint-8.28.0
+- Bump typescript-eslint from 8.27.0 to 8.28.0
+- Updated the README
+- Updated dependencies
+- Merge pull request #27 from anephenix/dependabot/npm_and_yarn/eslint-9.23.0
+- Merge pull request #26 from anephenix/dependabot/npm_and_yarn/typescript-eslint-8.27.0
+- Merge pull request #25 from anephenix/dependabot/npm_and_yarn/eslint/js-9.23.0
+- Bump eslint from 9.22.0 to 9.23.0
+- Bump typescript-eslint from 8.26.1 to 8.27.0
+- Bump @eslint/js from 9.22.0 to 9.23.0
+
 ### 0.0.6 - Monday 24th March, 2025
 
 - Improved referential integrity for loops, and added cleanupLoops function to remove loops that no longer exist

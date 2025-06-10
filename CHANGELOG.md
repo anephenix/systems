@@ -1,5 +1,19 @@
 # CHANGELOG
 
+### 0.0.9 - Tuesday 10th June, 2025
+
+- Merge pull request #53 from anephenix/dependabot/npm_and_yarn/mocha-11.6.0
+- Merge pull request #52 from anephenix/dependabot/npm_and_yarn/typescript-eslint-8.33.1
+- Bump mocha from 11.5.0 to 11.6.0
+- Bump typescript-eslint from 8.33.0 to 8.33.1
+- Modified GitHub workflow permissions
+- Merge pull request #51 from anephenix/dependabot/npm_and_yarn/eslint-9.28.0
+- Merge pull request #50 from anephenix/dependabot/npm_and_yarn/typescript-eslint-8.33.0
+- Merge pull request #49 from anephenix/dependabot/npm_and_yarn/eslint/js-9.28.0
+- Bump eslint from 9.27.0 to 9.28.0
+- Bump typescript-eslint from 8.32.1 to 8.33.0
+- Bump @eslint/js from 9.27.0 to 9.28.0
+
 ### 0.0.8 - Monday 26th May, 2025
 
 - Merge pull request #48 from anephenix/dependabot/npm_and_yarn/mocha-11.5.0

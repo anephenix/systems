@@ -10,7 +10,7 @@
     "build": "tsc --project tsconfig.json",
     "cover": "NODE_ENV=test npx nyc --reporter=lcov npm t",
     "lint": "npx eslint .",
-    "prepare-patch-release": "npm run build && npm run size && npm run update-changelog && git add CHANGELOG.md && git commit -m \"Updated changelog\" && npm version patch",
+    "prepare-patch-release": "npm t && npm run build && npm run size && npm run update-changelog && git add CHANGELOG.md && git commit -m \"Updated changelog\" && npm version patch",
     "publish-patch-release": "npm run prepare-patch-release && git push origin main && git push --tags",
     "size": "size-limit",
     "test": "NODE_ENV=test npx mocha --require ts-node/register --extensions ts test/**/* ",

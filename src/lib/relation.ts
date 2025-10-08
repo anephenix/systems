@@ -1,13 +1,13 @@
 // Dependencies
-import { v4 } from 'uuid';
+import { v4 } from "uuid";
 
-import { RelationSubType } from '../global';
+import type { RelationSubType } from "../global.js";
 
 interface RelationProps {
-    name: string;
-    type: RelationSubType;
-    from: string;
-    to: string;
+	name: string;
+	type: RelationSubType;
+	from: string;
+	to: string;
 }
 
 export default class Relation {
@@ -17,7 +17,7 @@ export default class Relation {
 	from: string;
 	to: string;
 
-	constructor({name, type, from, to}:RelationProps) {
+	constructor({ name, type, from, to }: RelationProps) {
 		this.id = v4();
 		this.name = name;
 		this.type = type; // Either positive or negative
@@ -29,7 +29,7 @@ export default class Relation {
 
 	validate() {
 		if (this.from === this.to) {
-			throw new Error('The from and to entities cannot be the same');
+			throw new Error("The from and to entities cannot be the same");
 		}
 	}
 }

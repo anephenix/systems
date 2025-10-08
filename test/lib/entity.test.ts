@@ -1,25 +1,33 @@
-import { EntitySubType } from '../../src/global';
-import Entity from '../../src/lib/entity';
-import assert from 'assert';
+import type { EntitySubType } from "../../src/global";
+import Entity from "../../src/lib/entity";
+import { describe, expect, it } from "vitest";
 
-describe('entity', () => {
-	it('should have a unique id', () => {
-		const entity = new Entity({ name: 'Buying volume', type: 'quantifiable' });
-		const secondEntity = new Entity({ name: 'Selling volume', type: 'quantifiable' });
-		assert(entity.id !== undefined);
-		assert(entity.id !== secondEntity.id);
-		assert.strictEqual(entity.id.length, 36);
-		assert.strictEqual(secondEntity.id.length, 36);
+describe("entity", () => {
+	it("should have a unique id", () => {
+		const entity = new Entity({ name: "Buying volume", type: "quantifiable" });
+		const secondEntity = new Entity({
+			name: "Selling volume",
+			type: "quantifiable",
+		});
+		expect(entity.id).toBeDefined();
+		expect(entity.id).not.toBe(secondEntity.id);
+		expect(entity.id.length).toBe(36);
+		expect(secondEntity.id.length).toBe(36);
 	});
 
-	it('can have a name', () => {
-		const entity = new Entity({ name: 'Buying volume', type: 'quantifiable' });
-		assert.strictEqual(entity.name, 'Buying volume');
+	it("can have a name", () => {
+		const entity = new Entity({ name: "Buying volume", type: "quantifiable" });
+		expect(entity.name).toBe("Buying volume");
 	});
 
-	it('will have a type of either quantifiable or non-quantifiable', () => {
-		assert.throws(() => {
-			new Entity({ name: 'Transaction volume', type: 'numeric' as EntitySubType });
-		}, /Invalid entity type - must be either quantifiable or non-quantifiable/);
+	it("will have a type of either quantifiable or non-quantifiable", () => {
+		expect(() => {
+			new Entity({
+				name: "Transaction volume",
+				type: "numeric" as EntitySubType,
+			});
+		}).toThrow(
+			/Invalid entity type - must be either quantifiable or non-quantifiable/,
+		);
 	});
 });

@@ -1,5 +1,21 @@
 # CHANGELOG
 
+### 0.0.11 - Wednesday 8th October, 2025
+
+- Removed ts-node and updated the update-changelog script to use Node.js natively
+- Added husky init
+- Added publint to verify the package.json, modified the typescript configuration, and replaced mocha with vitest
+- Merge pull request #98 from anephenix/dependabot/npm_and_yarn/mocha-11.7.4
+- Merge pull request #97 from anephenix/dependabot/npm_and_yarn/typescript-5.9.3
+- Merge pull request #96 from anephenix/dependabot/npm_and_yarn/typescript-eslint-8.45.0
+- Merge pull request #95 from anephenix/dependabot/npm_and_yarn/eslint-9.37.0
+- Merge pull request #94 from anephenix/dependabot/npm_and_yarn/eslint/js-9.37.0
+- Bump mocha from 11.7.2 to 11.7.4
+- Bump typescript from 5.9.2 to 5.9.3
+- Bump typescript-eslint from 8.44.1 to 8.45.0
+- Bump eslint from 9.36.0 to 9.37.0
+- Bump @eslint/js from 9.36.0 to 9.37.0
+
 ### 0.0.10 - Monday 6th October, 2025
 
 - Updated the package-lock.json file

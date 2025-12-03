@@ -1,5 +1,67 @@
 # CHANGELOG
 
+### 0.0.12 - Wednesday 3rd December, 2025
+
+- Updated License
+- Updated dependencies
+- Merge pull request #123 from anephenix/dependabot/npm_and_yarn/typescript-eslint-8.48.0
+- Merge pull request #126 from anephenix/dependabot/npm_and_yarn/prettier-3.7.3
+- Merge pull request #124 from anephenix/dependabot/npm_and_yarn/vitest-4.0.14
+- Bump prettier from 3.6.2 to 3.7.3
+- Bump vitest from 4.0.13 to 4.0.14
+- Bump typescript-eslint from 8.47.0 to 8.48.0
+- Merge pull request #122 from anephenix/dependabot/npm_and_yarn/typescript-eslint-8.47.0
+- Merge pull request #121 from anephenix/dependabot/npm_and_yarn/vitest-4.0.13
+- Bump typescript-eslint from 8.46.4 to 8.47.0
+- Bump vitest from 4.0.9 to 4.0.13
+- Merge pull request #120 from anephenix/dependabot/npm_and_yarn/vitest-4.0.9
+- Merge pull request #118 from anephenix/dependabot/npm_and_yarn/typescript-eslint-8.46.4
+- Merge pull request #119 from anephenix/dependabot/npm_and_yarn/types/node-24.10.1
+- Bump vitest from 4.0.8 to 4.0.9
+- Bump @types/node from 24.10.0 to 24.10.1
+- Bump typescript-eslint from 8.46.3 to 8.46.4
+- Merge pull request #115 from anephenix/dependabot/npm_and_yarn/typescript-eslint-8.46.3
+- Merge pull request #116 from anephenix/dependabot/npm_and_yarn/eslint/js-9.39.1
+- Merge pull request #114 from anephenix/dependabot/npm_and_yarn/eslint-9.39.1
+- Merge pull request #117 from anephenix/dependabot/npm_and_yarn/vitest-4.0.8
+- Bump vitest from 4.0.6 to 4.0.8
+- Bump @eslint/js from 9.39.0 to 9.39.1
+- Bump typescript-eslint from 8.46.2 to 8.46.3
+- Bump eslint from 9.39.0 to 9.39.1
+- Updated dependencies
+- Merge pull request #109 from anephenix/dependabot/npm_and_yarn/eslint/js-9.39.0
+- Merge pull request #111 from anephenix/dependabot/npm_and_yarn/eslint-9.39.0
+- Merge pull request #113 from anephenix/dependabot/npm_and_yarn/types/node-24.10.0
+- Merge pull request #112 from anephenix/dependabot/npm_and_yarn/vitest-4.0.6
+- Merge pull request #110 from anephenix/dependabot/npm_and_yarn/globals-16.5.0
+- Bump @types/node from 24.9.1 to 24.10.0
+- Bump vitest from 4.0.3 to 4.0.6
+- Bump eslint from 9.38.0 to 9.39.0
+- Bump globals from 16.4.0 to 16.5.0
+- Bump @eslint/js from 9.38.0 to 9.39.0
+- Merge pull request #107 from anephenix/dependabot/npm_and_yarn/typescript-eslint-8.46.2
+- Merge pull request #108 from anephenix/dependabot/npm_and_yarn/vitest-4.0.3
+- Merge pull request #106 from anephenix/dependabot/npm_and_yarn/types/node-24.9.1
+- Bump vitest from 3.2.4 to 4.0.3
+- Bump typescript-eslint from 8.46.1 to 8.46.2
+- Bump @types/node from 24.8.1 to 24.9.1
+- Updated dependencies
+- Merge pull request #105 from anephenix/dependabot/npm_and_yarn/typescript-eslint-8.46.1
+- Merge pull request #102 from anephenix/dependabot/npm_and_yarn/types/node-24.8.1
+- Merge pull request #104 from anephenix/dependabot/npm_and_yarn/publint-0.3.15
+- Merge pull request #103 from anephenix/dependabot/npm_and_yarn/eslint/js-9.38.0
+- Merge pull request #101 from anephenix/dependabot/npm_and_yarn/eslint-9.38.0
+- Bump typescript-eslint from 8.46.0 to 8.46.1
+- Bump publint from 0.3.14 to 0.3.15
+- Bump @eslint/js from 9.37.0 to 9.38.0
+- Bump @types/node from 24.7.2 to 24.8.1
+- Bump eslint from 9.37.0 to 9.38.0
+- Merge pull request #100 from anephenix/dependabot/npm_and_yarn/types/node-24.7.2
+- Merge pull request #99 from anephenix/dependabot/npm_and_yarn/typescript-eslint-8.46.0
+- Bump @types/node from 24.7.0 to 24.7.2
+- Bump typescript-eslint from 8.45.0 to 8.46.0
+- Added the @types/node package for TypeScript definitions for Node.js
+
 ### 0.0.11 - Wednesday 8th October, 2025
 
 - Removed ts-node and updated the update-changelog script to use Node.js natively

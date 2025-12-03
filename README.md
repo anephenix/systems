@@ -171,4 +171,4 @@ This feature will allow you to run simulations with the system, so that you can 
 
 ### Licence and Credits
 
-&copy;2025; Anephenix OÜ.
+&copy;2025; Anephenix Ltd.

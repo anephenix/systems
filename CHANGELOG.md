@@ -1,5 +1,9 @@
 # CHANGELOG
 
+### 0.0.14 - Sunday 4th January, 2026
+
+- Fix for package export in package.json file
+
 ### 0.0.13 - Sunday 4th January, 2026
 
 - Tweaks for new publish workflow

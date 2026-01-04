@@ -1,6 +1,6 @@
 {
 	"name": "@anephenix/systems",
-	"version": "0.0.12",
+	"version": "0.0.13",
 	"description": "Systems",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",

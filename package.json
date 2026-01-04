@@ -43,6 +43,14 @@
 		"singleQuote": true,
 		"trailingComma": "es5"
 	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/anephenix/systems.git"
+	},
+	"homepage": "https://github.com/anephenix/systems",
+	"bugs": {
+		"url": "https://github.com/anephenix/systems/issues"
+	},
 	"dependencies": {
 		"uuid": "^13.0.0"
 	},

@@ -1,5 +1,35 @@
 # CHANGELOG
 
+### 0.0.13 - Sunday 4th January, 2026
+
+- Tweaks for new publish workflow
+- Updated dependencies
+- Merge pull request #138 from anephenix/dependabot/npm_and_yarn/typescript-eslint-8.50.1
+- Bump typescript-eslint from 8.50.0 to 8.50.1
+- Updated dependencies
+- Merge pull request #135 from anephenix/dependabot/npm_and_yarn/typescript-eslint-8.50.0
+- Merge pull request #137 from anephenix/dependabot/npm_and_yarn/vitest-4.0.16
+- Merge pull request #136 from anephenix/dependabot/npm_and_yarn/types/node-25.0.3
+- Bump vitest from 4.0.15 to 4.0.16
+- Bump @types/node from 25.0.2 to 25.0.3
+- Bump typescript-eslint from 8.49.0 to 8.50.0
+- Merge pull request #131 from anephenix/dependabot/npm_and_yarn/eslint-9.39.2
+- Merge pull request #130 from anephenix/dependabot/npm_and_yarn/eslint/js-9.39.2
+- Merge pull request #133 from anephenix/dependabot/npm_and_yarn/typescript-eslint-8.49.0
+- Merge pull request #132 from anephenix/dependabot/npm_and_yarn/types/node-25.0.2
+- Merge pull request #134 from anephenix/dependabot/npm_and_yarn/publint-0.3.16
+- Bump publint from 0.3.15 to 0.3.16
+- Bump typescript-eslint from 8.48.1 to 8.49.0
+- Bump @types/node from 24.10.1 to 25.0.2
+- Bump eslint from 9.39.1 to 9.39.2
+- Bump @eslint/js from 9.39.1 to 9.39.2
+- Merge pull request #129 from anephenix/dependabot/npm_and_yarn/prettier-3.7.4
+- Merge pull request #128 from anephenix/dependabot/npm_and_yarn/vitest-4.0.15
+- Merge pull request #127 from anephenix/dependabot/npm_and_yarn/typescript-eslint-8.48.1
+- Bump prettier from 3.7.3 to 3.7.4
+- Bump vitest from 4.0.14 to 4.0.15
+- Bump typescript-eslint from 8.48.0 to 8.48.1
+
 ### 0.0.12 - Wednesday 3rd December, 2025
 
 - Updated License

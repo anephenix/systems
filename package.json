@@ -2,12 +2,12 @@
 	"name": "@anephenix/systems",
 	"version": "0.0.13",
 	"description": "Systems",
-	"main": "dist/index.js",
-	"types": "dist/index.d.ts",
+	"main": "dist/lib/index.js",
+	"types": "dist/lib/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.js"
+			"types": "./dist/lib/index.d.ts",
+			"import": "./dist/lib/index.js"
 		}
 	},
 	"type": "module",

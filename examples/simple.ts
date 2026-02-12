@@ -1,20 +1,20 @@
-import { System, Entity, Relation } from '../dist';
+import { Entity, Relation, System } from "../dist";
 
 // Create a system
 const system = new System({
-	name: 'trading system',
+	name: "trading system",
 });
 
 // Create an entity
 const buyVolume = new Entity({
-	name: 'buy volume',
-	type: 'quantifiable',
+	name: "buy volume",
+	type: "quantifiable",
 });
 
 // Create another entity
 const sharePrice = new Entity({
-	name: 'share price',
-	type: 'quantifiable',
+	name: "share price",
+	type: "quantifiable",
 });
 
 // Add an entity to the system
@@ -25,17 +25,16 @@ system.addEntity(sharePrice);
 
 // Create a relation from the first entity to the second entity
 const driveUpPrice = new Relation({
-	name: 'buying volume drives share price increases, and vice versa',
-	type: 'positive',
+	name: "buying volume drives share price increases, and vice versa",
+	type: "positive",
 	from: buyVolume.id,
 	to: sharePrice.id,
 });
 
 // Create a relation from the second entity back to the first entity
 const followTheFlock = new Relation({
-	name:
-	'share price increases drive others to purchase shares, increasing buy volume, and vice versa',
-	type: 'positive',
+	name: "share price increases drive others to purchase shares, increasing buy volume, and vice versa",
+	type: "positive",
 	from: sharePrice.id,
 	to: buyVolume.id,
 });

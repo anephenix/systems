@@ -1,13 +1,13 @@
 // Dependencies
 import { v4 } from "uuid";
-import Loop from "./loop.js";
-import type Relation from "./relation.js";
 import type {
 	EntityType,
-	RelationType,
 	LoopSubType,
 	LoopType,
+	RelationType,
 } from "../global.js";
+import Loop from "./loop.js";
+import type Relation from "./relation.js";
 
 // Interfaces
 

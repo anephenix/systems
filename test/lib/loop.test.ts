@@ -1,5 +1,5 @@
-import { Loop } from "../../src/lib";
 import { describe, expect, it } from "vitest";
+import { Loop } from "../../src/lib";
 
 describe("loop", () => {
 	const loop = new Loop({ name: "compounding interest", type: "reinforcing" });

@@ -1,6 +1,6 @@
+import { describe, expect, it } from "vitest";
 import type { EntitySubType } from "../../src/global";
 import Entity from "../../src/lib/entity";
-import { describe, expect, it } from "vitest";
 
 describe("entity", () => {
 	it("should have a unique id", () => {

@@ -1,5 +1,5 @@
+import { beforeAll, describe, expect, it } from "vitest";
 import { Entity, Relation } from "../../src/lib";
-import { describe, expect, it, beforeAll } from "vitest";
 
 describe("relation", () => {
 	let firstRelation: Relation;

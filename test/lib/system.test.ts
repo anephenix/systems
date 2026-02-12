@@ -1,6 +1,7 @@
 // Dependencies
-import { System, Entity, Relation } from "../../src/lib";
-import { describe, expect, it, beforeEach } from "vitest";
+
+import { beforeEach, describe, expect, it } from "vitest";
+import { Entity, Relation, System } from "../../src/lib";
 
 describe("system", () => {
 	let system: System;

@@ -1,5 +1,43 @@
 # CHANGELOG
 
+### 0.0.15 - Thursday 12th February, 2026
+
+- Replaced eslint with biome
+- Merge pull request #155 from anephenix/dependabot/npm_and_yarn/types/node-25.2.2
+- Bump @types/node from 25.2.0 to 25.2.2
+- Merge pull request #153 from anephenix/dependabot/npm_and_yarn/types/node-25.2.0
+- Merge pull request #150 from anephenix/dependabot/npm_and_yarn/typescript-eslint-8.54.0
+- Merge pull request #151 from anephenix/dependabot/npm_and_yarn/globals-17.3.0
+- Merge pull request #152 from anephenix/dependabot/npm_and_yarn/vitest-4.0.18
+- Bump @types/node from 25.0.10 to 25.2.0
+- Bump vitest from 4.0.17 to 4.0.18
+- Bump globals from 17.1.0 to 17.3.0
+- Bump typescript-eslint from 8.53.1 to 8.54.0
+- Merge pull request #148 from anephenix/dependabot/npm_and_yarn/types/node-25.0.10
+- Merge pull request #145 from anephenix/dependabot/npm_and_yarn/typescript-eslint-8.53.1
+- Merge pull request #146 from anephenix/dependabot/npm_and_yarn/prettier-3.8.1
+- Merge pull request #147 from anephenix/dependabot/npm_and_yarn/globals-17.1.0
+- Merge pull request #149 from anephenix/dependabot/npm_and_yarn/publint-0.3.17
+- Bump publint from 0.3.16 to 0.3.17
+- Bump @types/node from 25.0.9 to 25.0.10
+- Bump globals from 17.0.0 to 17.1.0
+- Bump prettier from 3.8.0 to 3.8.1
+- Bump typescript-eslint from 8.53.0 to 8.53.1
+- Merge pull request #144 from anephenix/dependabot/npm_and_yarn/types/node-25.0.9
+- Merge pull request #143 from anephenix/dependabot/npm_and_yarn/prettier-3.8.0
+- Merge pull request #142 from anephenix/dependabot/npm_and_yarn/typescript-eslint-8.53.0
+- Bump @types/node from 25.0.6 to 25.0.9
+- Bump prettier from 3.7.4 to 3.8.0
+- Bump typescript-eslint from 8.52.0 to 8.53.0
+- Merge pull request #141 from anephenix/dependabot/npm_and_yarn/vitest-4.0.17
+- Bump vitest from 4.0.16 to 4.0.17
+- Updated dependencies
+- Updated dependencies
+- Merge pull request #140 from anephenix/dependabot/npm_and_yarn/typescript-eslint-8.51.0
+- Merge pull request #139 from anephenix/dependabot/npm_and_yarn/globals-17.0.0
+- Bump typescript-eslint from 8.50.1 to 8.51.0
+- Bump globals from 16.5.0 to 17.0.0
+
 ### 0.0.14 - Sunday 4th January, 2026
 
 - Fix for package export in package.json file

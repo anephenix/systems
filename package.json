@@ -21,6 +21,7 @@
 	"scripts": {
 		"build": "tsc --project tsconfig.json",
 		"cover": "NODE_ENV=test npx nyc --reporter=lcov npm t",
+		"format": "npx @biomejs/biome check . --write",
 		"lint": "npx @biomejs/biome check .",
 		"lint:package": "npx publint",
 		"prepare-patch-release": "npm t && npm run build && npm run size && npm run update-changelog && git add CHANGELOG.md && git commit -m \"Updated changelog\" && npm version patch",
@@ -55,7 +56,7 @@
 		"uuid": "^13.0.0"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.4.4",
+		"@biomejs/biome": "^2.4.4",
 		"@size-limit/file": "^12.0.0",
 		"@types/mocha": "^10.0.10",
 		"@types/node": "^25.0.2",

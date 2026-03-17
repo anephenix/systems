@@ -1,5 +1,36 @@
 # CHANGELOG
 
+### 0.0.16 - Tuesday 17th March, 2026
+
+- Updated GitHub actions and dependencies
+- Merge pull request #166 from anephenix/dependabot/npm_and_yarn/biomejs/biome-2.4.7
+- Applied linting fixes and updated biome schema version
+- Merge pull request #167 from anephenix/dependabot/npm_and_yarn/vitest-4.1.0
+- Merge pull request #168 from anephenix/dependabot/npm_and_yarn/types/node-25.5.0
+- Bump @types/node from 25.3.5 to 25.5.0
+- Bump vitest from 4.0.18 to 4.1.0
+- Bump @biomejs/biome from 2.4.6 to 2.4.7
+- Merge pull request #165 from anephenix/dependabot/npm_and_yarn/biomejs/biome-2.4.6
+- Bump @biomejs/biome from 2.4.4 to 2.4.6
+- Updated dependencies
+- Updated dependencies
+- Merge pull request #161 from anephenix/dependabot/npm_and_yarn/types/node-25.3.3
+- Merge pull request #164 from anephenix/dependabot/npm_and_yarn/nyc-18.0.0
+- Merge pull request #163 from anephenix/dependabot/npm_and_yarn/globals-17.4.0
+- Merge pull request #162 from anephenix/dependabot/npm_and_yarn/publint-0.3.18
+- Bump nyc from 17.1.0 to 18.0.0
+- Bump globals from 17.3.0 to 17.4.0
+- Bump publint from 0.3.17 to 0.3.18
+- Bump @types/node from 25.3.0 to 25.3.3
+- Merge pull request #160 from anephenix/dependabot/npm_and_yarn/biomejs/biome-2.4.4
+- Merge pull request #159 from anephenix/dependabot/npm_and_yarn/types/node-25.3.0
+- Bump @biomejs/biome from 2.4.0 to 2.4.4
+- Bump @types/node from 25.2.3 to 25.3.0
+- Merge pull request #158 from anephenix/dependabot/npm_and_yarn/biomejs/biome-2.4.0
+- Merge pull request #157 from anephenix/dependabot/npm_and_yarn/types/node-25.2.3
+- Bump @biomejs/biome from 2.3.15 to 2.4.0
+- Bump @types/node from 25.2.2 to 25.2.3
+
 ### 0.0.15 - Thursday 12th February, 2026
 
 - Replaced eslint with biome

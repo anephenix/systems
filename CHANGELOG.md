@@ -1,5 +1,22 @@
 # CHANGELOG
 
+### 0.0.17 - Wednesday 8th April, 2026
+
+- Updated dependencies
+- Merge pull request #173 from anephenix/dependabot/npm_and_yarn/types/node-25.5.2
+- Bump @types/node from 25.5.0 to 25.5.2
+- Merge pull request #171 from anephenix/dependabot/npm_and_yarn/typescript-6.0.2
+- Made a tweak to the tsconfig.json file
+- Updated biome.json schema
+- Updated dependencies
+- Merge pull request #170 from anephenix/dependabot/npm_and_yarn/vitest-4.1.2
+- Merge pull request #172 from anephenix/dependabot/npm_and_yarn/biomejs/biome-2.4.9
+- Bump @biomejs/biome from 2.4.8 to 2.4.9
+- Bump typescript from 5.9.3 to 6.0.2
+- Bump vitest from 4.1.0 to 4.1.2
+- Merge pull request #169 from anephenix/dependabot/npm_and_yarn/biomejs/biome-2.4.8
+- Bump @biomejs/biome from 2.4.7 to 2.4.8
+
 ### 0.0.16 - Tuesday 17th March, 2026
 
 - Updated GitHub actions and dependencies

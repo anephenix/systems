@@ -38,12 +38,6 @@
 			"pre-commit": "npm run lint && npm t"
 		}
 	},
-	"prettier": {
-		"printWidth": 80,
-		"semi": true,
-		"singleQuote": true,
-		"trailingComma": "es5"
-	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/anephenix/systems.git"
@@ -64,7 +58,6 @@
 		"globals": "^17.0.0",
 		"husky": "^9.1.7",
 		"nyc": "^18.0.0",
-		"prettier": "^3.4.2",
 		"publint": "^0.3.14",
 		"size-limit": "^12.0.0",
 		"size-limit-node-esbuild": "^0.4.0",

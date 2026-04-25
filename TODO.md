@@ -12,7 +12,7 @@
 - [x] Be able to change where the relation is from
 - [x] Be able to change where the relation is to
 - [x] Detect loops that exist between entities
-- [ ] Be able to run a simulation with assigned values
+- [x] Be able to run a simulation with assigned values
 
 ----
 
@@ -22,5 +22,5 @@
 - [x] Update husky hooks
 - [x] Publish NPM package
 - [x] Added status badges and track in relevant locations
-- [ ] Update README on usage
+- [x] Update README on usage
 - [ ] Put the library to use

@@ -32,3 +32,11 @@ export type LoopType = {
 	relations: Array<string>;
 	entities: Array<string>;
 };
+
+// Simulation
+
+export type SimulationStep = {
+	step: number;
+	time: number;
+	values: Record<string, number>;
+};

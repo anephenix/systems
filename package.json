@@ -20,7 +20,7 @@
 	],
 	"scripts": {
 		"build": "tsc --project tsconfig.json",
-		"cover": "NODE_ENV=test npx nyc --reporter=lcov npm t",
+		"cover": "NODE_ENV=test npx vitest --run --coverage",
 		"format": "npx @biomejs/biome check . --write",
 		"lint": "npx @biomejs/biome check .",
 		"lint:package": "npx publint",
@@ -52,12 +52,11 @@
 	"devDependencies": {
 		"@biomejs/biome": "^2.4.4",
 		"@size-limit/file": "^12.0.0",
-		"@types/mocha": "^10.0.10",
 		"@types/node": "^25.0.2",
 		"@types/uuid": "^11.0.0",
+		"@vitest/coverage-v8": "^4.1.5",
 		"globals": "^17.0.0",
 		"husky": "^9.1.7",
-		"nyc": "^18.0.0",
 		"publint": "^0.3.14",
 		"size-limit": "^12.0.0",
 		"size-limit-node-esbuild": "^0.4.0",

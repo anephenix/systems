@@ -1,4 +1,4 @@
-import { Entity, Relation, System } from "../dist";
+import { Entity, Relation, System } from "../dist/lib/index.js";
 
 // Create a system
 const system = new System({

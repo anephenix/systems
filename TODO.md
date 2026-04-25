@@ -19,7 +19,7 @@
 - [x] Replace jest with mocha and nyc
 - [x] Add size limit
 - [x] Setup script to publish updates automatically
-- [ ] Update husky hooks
+- [x] Update husky hooks
 - [x] Publish NPM package
 - [x] Added status badges and track in relevant locations
 - [ ] Update README on usage

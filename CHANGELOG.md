@@ -1,5 +1,34 @@
 # CHANGELOG
 
+### 0.0.18 - Saturday 25th April, 2026
+
+- Updated the README.md file
+- Added an example of a woodland ecosystem
+- Added the ability to run simulations with the Systems, with different ways to apply the relationships to the weights
+- Updated dependencies and a bit of tidyup
+- Merge pull request #180 from anephenix/dependabot/npm_and_yarn/size-limit-12.1.0
+- Merge pull request #183 from anephenix/dependabot/npm_and_yarn/size-limit/file-12.1.0
+- Merge pull request #182 from anephenix/dependabot/npm_and_yarn/biomejs/biome-2.4.12
+- Merge pull request #181 from anephenix/dependabot/npm_and_yarn/uuid-14.0.0
+- Merge pull request #179 from anephenix/dependabot/npm_and_yarn/typescript-6.0.3
+- Bump @size-limit/file from 12.0.1 to 12.1.0
+- Bump @biomejs/biome from 2.4.11 to 2.4.12
+- Bump uuid from 13.0.0 to 14.0.0
+- Bump size-limit from 12.0.1 to 12.1.0
+- Bump typescript from 6.0.2 to 6.0.3
+- Updated the biome schema
+- Removed prettier
+- Merge pull request #177 from anephenix/dependabot/npm_and_yarn/vitest-4.1.4
+- Merge pull request #178 from anephenix/dependabot/npm_and_yarn/prettier-3.8.2
+- Merge pull request #176 from anephenix/dependabot/npm_and_yarn/biomejs/biome-2.4.11
+- Merge pull request #175 from anephenix/dependabot/npm_and_yarn/types/node-25.6.0
+- Merge pull request #174 from anephenix/dependabot/npm_and_yarn/globals-17.5.0
+- Bump prettier from 3.8.1 to 3.8.2
+- Bump vitest from 4.1.3 to 4.1.4
+- Bump @biomejs/biome from 2.4.10 to 2.4.11
+- Bump @types/node from 25.5.2 to 25.6.0
+- Bump globals from 17.4.0 to 17.5.0
+
 ### 0.0.17 - Wednesday 8th April, 2026
 
 - Updated dependencies

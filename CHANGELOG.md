@@ -1,5 +1,69 @@
 # CHANGELOG
 
+### 0.0.19 - Friday 17th July, 2026
+
+- Updated biome schema
+- Updated dependencies
+- Merge pull request #211 from anephenix/dependabot/npm_and_yarn/typescript-7.0.2
+- Bump typescript from 6.0.3 to 7.0.2
+- migrate biome to the latest version
+- Updated dependencies and TypeScript version
+- Merge pull request #210 from anephenix/dependabot/npm_and_yarn/vitest-4.1.10
+- Merge pull request #209 from anephenix/dependabot/npm_and_yarn/vitest/coverage-v8-4.1.10
+- Merge pull request #208 from anephenix/dependabot/npm_and_yarn/biomejs/biome-2.5.2
+- Merge pull request #207 from anephenix/dependabot/npm_and_yarn/types/node-26.1.0
+- Bump vitest from 4.1.9 to 4.1.10
+- Bump @vitest/coverage-v8 from 4.1.9 to 4.1.10
+- Bump @biomejs/biome from 2.5.1 to 2.5.2
+- Bump @types/node from 26.0.1 to 26.1.0
+- Merge pull request #204 from anephenix/dependabot/npm_and_yarn/types/node-26.0.1
+- Merge pull request #206 from anephenix/dependabot/npm_and_yarn/biomejs/biome-2.5.1
+- Merge pull request #205 from anephenix/dependabot/npm_and_yarn/globals-17.7.0
+- Bump @biomejs/biome from 2.5.0 to 2.5.1
+- Bump globals from 17.6.0 to 17.7.0
+- Bump @types/node from 26.0.0 to 26.0.1
+- Merge pull request #203 from anephenix/dependabot/npm_and_yarn/uuid-14.0.1
+- Merge pull request #202 from anephenix/dependabot/npm_and_yarn/types/node-26.0.0
+- Bump uuid from 14.0.0 to 14.0.1
+- Bump @types/node from 25.9.3 to 26.0.0
+- Merge pull request #200 from anephenix/dependabot/npm_and_yarn/vitest-4.1.9
+- Merge pull request #201 from anephenix/dependabot/npm_and_yarn/vitest/coverage-v8-4.1.9
+- Bump @vitest/coverage-v8 from 4.1.8 to 4.1.9
+- Bump vitest from 4.1.8 to 4.1.9
+- Updated dependencies
+- Merge pull request #199 from anephenix/dependabot/npm_and_yarn/types/node-25.9.2
+- Bump @types/node from 25.9.1 to 25.9.2
+- Merge pull request #196 from anephenix/dependabot/npm_and_yarn/vitest-4.1.8
+- Merge pull request #198 from anephenix/dependabot/npm_and_yarn/vitest/coverage-v8-4.1.8
+- Merge pull request #197 from anephenix/dependabot/npm_and_yarn/biomejs/biome-2.4.16
+- Bump @vitest/coverage-v8 from 4.1.7 to 4.1.8
+- Bump @biomejs/biome from 2.4.15 to 2.4.16
+- Bump vitest from 4.1.7 to 4.1.8
+- Merge pull request #193 from anephenix/dependabot/npm_and_yarn/vitest/coverage-v8-4.1.7
+- Merge pull request #195 from anephenix/dependabot/npm_and_yarn/vitest-4.1.7
+- Merge pull request #194 from anephenix/dependabot/npm_and_yarn/types/node-25.9.1
+- Bump vitest from 4.1.6 to 4.1.7
+- Bump @types/node from 25.9.0 to 25.9.1
+- Bump @vitest/coverage-v8 from 4.1.6 to 4.1.7
+- Merge pull request #192 from anephenix/dependabot/npm_and_yarn/publint-0.3.21
+- Merge pull request #191 from anephenix/dependabot/npm_and_yarn/types/node-25.9.0
+- Bump publint from 0.3.20 to 0.3.21
+- Bump @types/node from 25.6.2 to 25.9.0
+- Merge pull request #188 from anephenix/dependabot/npm_and_yarn/vitest/coverage-v8-4.1.6
+- Merge pull request #189 from anephenix/dependabot/npm_and_yarn/vitest-4.1.6
+- Merge pull request #190 from anephenix/dependabot/npm_and_yarn/publint-0.3.20
+- Merge pull request #186 from anephenix/dependabot/npm_and_yarn/biomejs/biome-2.4.15
+- Merge pull request #187 from anephenix/dependabot/npm_and_yarn/types/node-25.6.2
+- Bump publint from 0.3.18 to 0.3.20
+- Bump vitest from 4.1.5 to 4.1.6
+- Bump @vitest/coverage-v8 from 4.1.5 to 4.1.6
+- Bump @types/node from 25.6.0 to 25.6.2
+- Bump @biomejs/biome from 2.4.14 to 2.4.15
+- Merge pull request #185 from anephenix/dependabot/npm_and_yarn/biomejs/biome-2.4.14
+- Bump @biomejs/biome from 2.4.13 to 2.4.14
+- Merge pull request #184 from anephenix/dependabot/npm_and_yarn/globals-17.6.0
+- Bump globals from 17.5.0 to 17.6.0
+
 ### 0.0.18 - Saturday 25th April, 2026
 
 - Updated the README.md file

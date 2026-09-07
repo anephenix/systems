@@ -62,7 +62,7 @@
 		"size-limit-node-esbuild": "^0.4.0",
 		"tslint": "^6.1.3",
 		"typescript": "^7.0.2",
-		"vitest": "^4.0.3"
+		"vitest": "^5.0.0"
 	},
 	"size-limit": [
 		{

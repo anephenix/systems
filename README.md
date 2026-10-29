@@ -17,9 +17,9 @@ To begin with, you need to create a System that can contain all of the entities,
 #### System
 
 ```typescript
-import { System } from '@anephenix/systems';
+import { System } from "@anephenix/systems";
 
-const system = new System({ name: 'Ecological system' });
+const system = new System({ name: "Ecological system" });
 ```
 
 Once you have created a system, you can begin to add entities to it.
@@ -29,10 +29,10 @@ Once you have created a system, you can begin to add entities to it.
 Entities are things that you want to measure or that have an impact within the system. A good example in the context of the ecological system is the number of predators and the number of prey. In the case of Yellowstone national park in the United States, wolves are a predator and elk are one of their prey.
 
 ```typescript
-import { Entity } from '@anephenix/systems';
+import { Entity } from "@anephenix/systems";
 
-const wolves = new Entity({ name: 'Number of Wolves', type: 'quantifiable' });
-const elk = new Entity({ name: 'Number of Elk', type: 'quantifiable' });
+const wolves = new Entity({ name: "Number of Wolves", type: "quantifiable" });
+const elk = new Entity({ name: "Number of Elk", type: "quantifiable" });
 ```
 
 The `type` property indicates whether the entity can be measured numerically. We can count wolves, so the type is `'quantifiable'`.
@@ -46,16 +46,16 @@ Relations are the directed links between entities. Each relation goes from one e
 **Negative relation** — an increase in the source causes a decrease in the target (and vice versa). Wolves preying on elk is a negative link: more wolves means fewer elk.
 
 ```typescript
-import { Entity, Relation } from '@anephenix/systems';
+import { Entity, Relation } from "@anephenix/systems";
 
-const wolves = new Entity({ name: 'Number of Wolves', type: 'quantifiable' });
-const elk = new Entity({ name: 'Number of Elk', type: 'quantifiable' });
+const wolves = new Entity({ name: "Number of Wolves", type: "quantifiable" });
+const elk = new Entity({ name: "Number of Elk", type: "quantifiable" });
 
 const wolvesEatElk = new Relation({
-    name: 'Wolves eating Elk',
-    type: 'negative',
-    from: wolves.id,
-    to: elk.id,
+	name: "Wolves eating Elk",
+	type: "negative",
+	from: wolves.id,
+	to: elk.id,
 });
 ```
 
@@ -63,10 +63,10 @@ const wolvesEatElk = new Relation({
 
 ```typescript
 const elkAsFoodForWolves = new Relation({
-    name: 'Elk as a food source for Wolves',
-    type: 'positive',
-    from: elk.id,
-    to: wolves.id,
+	name: "Elk as a food source for Wolves",
+	type: "positive",
+	from: elk.id,
+	to: wolves.id,
 });
 ```
 
@@ -75,25 +75,25 @@ const elkAsFoodForWolves = new Relation({
 Use `addEntity` and `addRelation` on the system instance to register everything.
 
 ```typescript
-import { System, Entity, Relation } from '@anephenix/systems';
+import { System, Entity, Relation } from "@anephenix/systems";
 
-const system = new System({ name: 'Ecological system' });
+const system = new System({ name: "Ecological system" });
 
-const wolves = new Entity({ name: 'Number of Wolves', type: 'quantifiable' });
-const elk = new Entity({ name: 'Number of Elk', type: 'quantifiable' });
+const wolves = new Entity({ name: "Number of Wolves", type: "quantifiable" });
+const elk = new Entity({ name: "Number of Elk", type: "quantifiable" });
 
 const wolvesEatElk = new Relation({
-    name: 'Wolves eating Elk',
-    type: 'negative',
-    from: wolves.id,
-    to: elk.id,
+	name: "Wolves eating Elk",
+	type: "negative",
+	from: wolves.id,
+	to: elk.id,
 });
 
 const elkAsFoodForWolves = new Relation({
-    name: 'Elk as a food source for Wolves',
-    type: 'positive',
-    from: elk.id,
-    to: wolves.id,
+	name: "Elk as a food source for Wolves",
+	type: "positive",
+	from: elk.id,
+	to: wolves.id,
 });
 
 system.addEntity(wolves);
@@ -131,41 +131,41 @@ A `Simulation` takes a system with assigned initial values and runs it forward s
 ##### Basic setup
 
 ```typescript
-import { System, Entity, Relation, Simulation } from '@anephenix/systems';
+import { System, Entity, Relation, Simulation } from "@anephenix/systems";
 
-const system = new System({ name: 'Ecological system' });
+const system = new System({ name: "Ecological system" });
 
-const wolves = new Entity({ name: 'Number of Wolves', type: 'quantifiable' });
-const elk = new Entity({ name: 'Number of Elk', type: 'quantifiable' });
+const wolves = new Entity({ name: "Number of Wolves", type: "quantifiable" });
+const elk = new Entity({ name: "Number of Elk", type: "quantifiable" });
 
 system.addEntity(wolves);
 system.addEntity(elk);
 
 const wolvesEatElk = new Relation({
-    name: 'Wolves eating Elk',
-    type: 'negative',
-    from: wolves.id,
-    to: elk.id,
+	name: "Wolves eating Elk",
+	type: "negative",
+	from: wolves.id,
+	to: elk.id,
 });
 
 const elkAsFoodForWolves = new Relation({
-    name: 'Elk as a food source for Wolves',
-    type: 'positive',
-    from: elk.id,
-    to: wolves.id,
+	name: "Elk as a food source for Wolves",
+	type: "positive",
+	from: elk.id,
+	to: wolves.id,
 });
 
 system.addRelation(wolvesEatElk);
 system.addRelation(elkAsFoodForWolves);
 
 const simulation = new Simulation({
-    system,
-    initialValues: {
-        [wolves.id]: 10,
-        [elk.id]: 200,
-    },
-    steps: 50,  // number of time steps to run
-    dt: 1,      // time delta per step (e.g. 1 = one season)
+	system,
+	initialValues: {
+		[wolves.id]: 10,
+		[elk.id]: 200,
+	},
+	steps: 50, // number of time steps to run
+	dt: 1, // time delta per step (e.g. 1 = one season)
 });
 ```
 
@@ -177,7 +177,7 @@ Call `run()` to execute all steps at once. It returns the full history — an ar
 const history = simulation.run();
 
 for (const step of history) {
-    console.log(step.step, step.time, step.values);
+	console.log(step.step, step.time, step.values);
 }
 ```
 
@@ -195,16 +195,16 @@ By default each relation has a weight of `1.0`. You can override this per relati
 
 ```typescript
 const simulation = new Simulation({
-    system,
-    initialValues: {
-        [wolves.id]: 10,
-        [elk.id]: 200,
-    },
-    relationWeights: {
-        [wolvesEatElk.id]: 0.05,       // each wolf removes 0.05 elk per step
-        [elkAsFoodForWolves.id]: 0.008, // each elk adds 0.008 wolves per step
-    },
-    steps: 50,
+	system,
+	initialValues: {
+		[wolves.id]: 10,
+		[elk.id]: 200,
+	},
+	relationWeights: {
+		[wolvesEatElk.id]: 0.05, // each wolf removes 0.05 elk per step
+		[elkAsFoodForWolves.id]: 0.008, // each elk adds 0.008 wolves per step
+	},
+	steps: 50,
 });
 ```
 
@@ -213,37 +213,40 @@ const simulation = new Simulation({
 For relationships that are multiplicative rather than linear — for example, compound interest, or predator-prey dynamics where the interaction rate scales with both populations — you can supply a transfer function for any relation. The function receives `(sourceValue, targetValue)` and returns the delta magnitude; the relation's polarity is still applied on top.
 
 ```typescript
-import { System, Entity, Relation, Simulation } from '@anephenix/systems';
+import { System, Entity, Relation, Simulation } from "@anephenix/systems";
 
-const system = new System({ name: 'Bank account' });
+const system = new System({ name: "Bank account" });
 
-const interestRate = new Entity({ name: 'Annual interest rate', type: 'quantifiable' });
-const balance = new Entity({ name: 'Balance', type: 'quantifiable' });
+const interestRate = new Entity({
+	name: "Annual interest rate",
+	type: "quantifiable",
+});
+const balance = new Entity({ name: "Balance", type: "quantifiable" });
 
 system.addEntity(interestRate);
 system.addEntity(balance);
 
 const rateGrowsBalance = new Relation({
-    name: 'Interest rate compounds balance',
-    type: 'positive',
-    from: interestRate.id,
-    to: balance.id,
+	name: "Interest rate compounds balance",
+	type: "positive",
+	from: interestRate.id,
+	to: balance.id,
 });
 
 system.addRelation(rateGrowsBalance);
 
 const simulation = new Simulation({
-    system,
-    initialValues: {
-        [interestRate.id]: 0.0325, // 3.25% AER
-        [balance.id]: 1000,
-    },
-    relationTransferFns: {
-        // delta = rate × currentBalance gives exact compound growth
-        [rateGrowsBalance.id]: (rate, currentBalance) => rate * currentBalance,
-    },
-    steps: 10,
-    dt: 1, // 1 year per step
+	system,
+	initialValues: {
+		[interestRate.id]: 0.0325, // 3.25% AER
+		[balance.id]: 1000,
+	},
+	relationTransferFns: {
+		// delta = rate × currentBalance gives exact compound growth
+		[rateGrowsBalance.id]: (rate, currentBalance) => rate * currentBalance,
+	},
+	steps: 10,
+	dt: 1, // 1 year per step
 });
 
 const history = simulation.run();

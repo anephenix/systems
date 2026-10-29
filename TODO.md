@@ -14,7 +14,7 @@
 - [x] Detect loops that exist between entities
 - [x] Be able to run a simulation with assigned values
 
-----
+---
 
 - [x] Replace jest with mocha and nyc
 - [x] Add size limit
